@@ -23,17 +23,19 @@ for input_file in files:
     for line in lines:
         line = line.strip()
 
-        # Detect start of sections
-        if line.startswith("root:") and ":" in line:
+        # Detect the beginning of /etc/passwd
+        if line.startswith("root:") and len(line.split(":")) > 2:
             current_section = "passwd"
-        elif line.startswith("$6$") or line.startswith("root:*:"):
+
+        # Detect the beginning of /etc/shadow
+        elif line.startswith("root:!") or line.startswith("root:*") or line.startswith("$6$"):
             current_section = "shadow"
 
-        # Stop collecting if another command output starts
-        if "ESTAB" in line or "ps -aux" in line or "COMMAND" in line:
+        # Stop collecting when another command output appears
+        elif "ESTAB" in line or "ps -aux" in line or "COMMAND" in line:
             current_section = None
 
-        # Store lines in the appropriate section
+        # Store data in the correct section
         if current_section == "passwd":
             passwd_data.append(line)
         elif current_section == "shadow":
