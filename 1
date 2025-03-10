@@ -23,17 +23,19 @@ for input_file in files:
     for line in lines:
         line = line.strip()
 
-        # Detect start of sections
-        if line.startswith("/etc/passwd"):
+        # Detect the start of /etc/passwd section
+        if line.startswith("root:x:") and ":" in line and len(line.split(":")) >= 7:
             current_section = "passwd"
-            continue  # Skip the section header line
-        elif line.startswith("/etc/shadow"):
-            current_section = "shadow"
-            continue  # Skip the section header line
-        elif line.startswith("/") and "passwd" not in line and "shadow" not in line:
-            current_section = None  # Stop if another file output starts
 
-        # Store data in the correct section
+        # Detect the start of /etc/shadow section
+        elif (line.startswith("root:!") or line.startswith("root:*") or line.startswith("$6$")) and ":" in line:
+            current_section = "shadow"
+
+        # Stop collecting if another command output starts (netstat, ps -aux, or another file dump)
+        elif "ESTAB" in line or "ps -aux" in line or "COMMAND" in line or (line.startswith("/") and not line.startswith("root:")):
+            current_section = None
+
+        # Append to the correct section
         if current_section == "passwd":
             passwd_data.append(line)
         elif current_section == "shadow":
@@ -43,9 +45,9 @@ for input_file in files:
     if passwd_data:
         with open(passwd_file, "w") as f:
             f.write("\n".join(passwd_data))
-        print(f"Extracted passwd data -> {passwd_file}")
+        print(f"✅ Extracted passwd data -> {passwd_file}")
 
     if shadow_data:
         with open(shadow_file, "w") as f:
             f.write("\n".join(shadow_data))
-        print(f"Extracted shadow data -> {shadow_file}")
+        print(f"✅ Extracted shadow data -> {shadow_file}")
