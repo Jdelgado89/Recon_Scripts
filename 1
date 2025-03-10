@@ -1,7 +1,7 @@
 import os
 import glob
 
-directory = "/mnt/data/"
+directory = "./"
 file_pattern = "creds_for_10.*"
 
 files = glob.glob(os.path.join(directory, file_pattern))
@@ -23,17 +23,15 @@ for input_file in files:
     for line in lines:
         line = line.strip()
 
-        # Detect the beginning of /etc/passwd
-        if line.startswith("root:") and len(line.split(":")) > 2:
+        # Detect start of sections
+        if line.startswith("/etc/passwd"):
             current_section = "passwd"
-
-        # Detect the beginning of /etc/shadow
-        elif line.startswith("root:!") or line.startswith("root:*") or line.startswith("$6$"):
+            continue  # Skip the section header line
+        elif line.startswith("/etc/shadow"):
             current_section = "shadow"
-
-        # Stop collecting when another command output appears
-        elif "ESTAB" in line or "ps -aux" in line or "COMMAND" in line:
-            current_section = None
+            continue  # Skip the section header line
+        elif line.startswith("/") and "passwd" not in line and "shadow" not in line:
+            current_section = None  # Stop if another file output starts
 
         # Store data in the correct section
         if current_section == "passwd":
