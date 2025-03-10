@@ -1,1 +1,41 @@
-1
+# Define file paths
+input_file = "/mnt/data/creds_for_10.178.158.61"
+shadow_file = "/mnt/data/shadow_output.txt"
+passwd_file = "/mnt/data/passwd_output.txt"
+
+# Read the file content
+with open(input_file, "r") as f:
+    lines = f.readlines()
+
+# Variables to store extracted content
+shadow_data = []
+passwd_data = []
+current_section = None
+
+# Process the file line by line
+for line in lines:
+    line = line.strip()
+    
+    # Detect section headers
+    if line.startswith("/etc/shadow"):
+        current_section = "shadow"
+        continue
+    elif line.startswith("/etc/passwd"):
+        current_section = "passwd"
+        continue
+    
+    # Store content in respective lists
+    if current_section == "shadow":
+        shadow_data.append(line)
+    elif current_section == "passwd":
+        passwd_data.append(line)
+
+# Write extracted data to separate files
+with open(shadow_file, "w") as f:
+    f.write("\n".join(shadow_data))
+
+with open(passwd_file, "w") as f:
+    f.write("\n".join(passwd_data))
+
+# Return file paths
+shadow_file, passwd_file
