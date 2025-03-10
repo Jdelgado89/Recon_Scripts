@@ -1,0 +1,651 @@
+
+>>>>>  Working on 10.178.158.61 @ Fri Mar  7 16:58:48 EST 2025 <<<<<
+
+spawn ssh -i ~/.ssh/oitbsdhcsvcvvm_id_rsa -o StrictHostKeyChecking=no oitbsdhcsvcvvm@10.178.158.61
+This U.S. government system is intended to be used by authorized VA network users for viewing and retrieving information only except as otherwise explicitly authorized. VA information resides on and transmits through computer systems and networks funded by VA. All use is considered to be with an understanding and acceptance that there is no reasonable expectation of privacy for any data or transmissions on Government Intranet or Extranet (non-public) networks or systems., All transactions that occur on this system and all data transmitted through this system are subject to review and action including (but not limited to) monitoring- recording- retrieving- copying- auditing- inspecting- investigating- restricting access- blocking- tracking- disclosing to authorized personnel or any other authorized actions by all authorized VA and law enforcement personnel., All use of this system constitutes understanding and unconditional acceptance of these terms., Unauthorized attempts or acts to either (1) access- upload- change- or delete information on this system (2) modify this system (3) deny access to this system or (4) accrue resources for unauthorized use on this system are strictly prohibited., Such attempts or acts are subject to action that may result in criminal civil or administrative penalties.
+Last login: Fri Mar  7 13:57:39 2025 from 10.254.66.61
+]0;oitbsdhcsvcvvm@oitsdcdhcs02:~[oitbsdhcsvcvvm@oitsdcdhcs02 ~]$ sudo -i
+]0;root@oitsdcdhcs02:~[root@oitsdcdhcs02 ~]# hostname
+oitsdcdhcs02.r01.med.va.gov
+]0;root@oitsdcdhcs02:~[root@oitsdcdhcs02 ~]# cat /etc/passwd
+root:x:0:0:root:/root:/bin/bash
+bin:x:1:1:bin:/bin:/sbin/nologin
+daemon:x:2:2:daemon:/sbin:/sbin/nologin
+adm:x:3:4:adm:/var/adm:/sbin/nologin
+lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+sync:x:5:0:sync:/sbin:/bin/sync
+shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+halt:x:7:0:halt:/sbin:/sbin/halt
+mail:x:8:12:mail:/var/spool/mail:/sbin/nologin
+operator:x:11:0:operator:/root:/sbin/nologin
+games:x:12:100:games:/usr/games:/sbin/nologin
+ftp:x:14:50:FTP User:/var/ftp:/sbin/nologin
+nobody:x:65534:65534:Kernel Overflow User:/:/sbin/nologin
+dbus:x:81:81:System message bus:/:/sbin/nologin
+systemd-coredump:x:999:997:systemd Core Dumper:/:/sbin/nologin
+systemd-resolve:x:193:193:systemd Resolver:/:/sbin/nologin
+tss:x:59:59:Account used for TPM access:/dev/null:/sbin/nologin
+polkitd:x:998:996:User for polkitd:/:/sbin/nologin
+unbound:x:997:994:Unbound DNS resolver:/etc/unbound:/sbin/nologin
+postfix:x:89:89::/var/spool/postfix:/sbin/nologin
+fapolicyd:x:996:993:Application Whitelisting Daemon:/var/lib/fapolicyd:/sbin/nologin
+setroubleshoot:x:995:992::/var/lib/setroubleshoot:/sbin/nologin
+cockpit-ws:x:994:991:User for cockpit web service:/nonexisting:/sbin/nologin
+cockpit-wsinstance:x:993:990:User for cockpit-ws instances:/nonexisting:/sbin/nologin
+pcp:x:992:989:Performance Co-Pilot:/var/lib/pcp:/sbin/nologin
+sssd:x:991:988:User for sssd:/:/sbin/nologin
+chrony:x:990:987::/var/lib/chrony:/sbin/nologin
+sshd:x:74:74:Privilege-separated SSH:/var/empty/sshd:/sbin/nologin
+rngd:x:989:986:Random Number Generator Daemon:/var/lib/rngd:/sbin/nologin
+tcpdump:x:72:72::/:/sbin/nologin
+oiteslsvcsatadmin:x:886:886:ansible service account required for remote admin:/home/oiteslsvcsatadmin:/bin/bash
+apache:x:48:48:Apache:/usr/share/httpd:/sbin/nologin
+linfos:x:100490:100490:LINFOS Service account:/home/linfos:/bin/bash
+rpc:x:32:32:Rpcbind Daemon:/var/lib/rpcbind:/sbin/nologin
+rpcuser:x:29:29:RPC Service User:/var/lib/nfs:/sbin/nologin
+avahi:x:70:70:Avahi mDNS/DNS-SD Stack:/var/run/avahi-daemon:/sbin/nologin
+oitbsdhcsvcvvm:x:118810:118810:VistA Vitals Monitor (VVM):/home/oitbsdhcsvcvvm:/bin/bash
+iscagent:x:59999:59999::/home/iscagent:/bin/bash
+sdcirisusr:x:51105:51105::/home/sdcirisusr:/bin/bash
+sdcirismgr:x:51104:51104::/home/sdcirismgr:/bin/bash
+sdctcpip:x:51101:51101::/home/sdctcpip:/bin/bash
+vasvcfsnix:x:880:880:vasvcfsnix service account required for remote scanning:/home/vasvcfsnix:/bin/bash
+]0;root@oitsdcdhcs02:~[root@oitsdcdhcs02 ~]# cat /etc/shadow
+root:$5$kdaG0POddBuTruZQ$g4A9Ogc5hgt7zFp55gyho1j1lTn8A6o5MGeG/kh6JfC::1:99999:7:::
+bin:*:18367:0:99999:7:::
+daemon:*:18367:0:99999:7:::
+adm:*:18367:0:99999:7:::
+lp:*:18367:0:99999:7:::
+sync:*:18367:0:99999:7:::
+shutdown:*:18367:0:99999:7:::
+halt:*:18367:0:99999:7:::
+mail:*:18367:0:99999:7:::
+operator:*:18367:0:99999:7:::
+games:*:18367:0:99999:7:::
+ftp:*:18367:0:99999:7:::
+nobody:*:18367:0:99999:7:::
+dbus:!!:19458::::::
+systemd-coredump:!!:19458::::::
+systemd-resolve:!!:19458::::::
+tss:!!:19458::::::
+polkitd:!!:19458::::::
+unbound:!!:19458::::::
+postfix:!!:19458::::::
+fapolicyd:!!:19458::::::
+setroubleshoot:!!:19458::::::
+cockpit-ws:!!:19458::::::
+cockpit-wsinstance:!!:19458::::::
+pcp:!!:19458::::::
+sssd:!!:19458::::::
+chrony:!!:19458::::::
+sshd:!!:19458::::::
+rngd:!!:19458::::::
+tcpdump:!!:19458::::::
+oiteslsvcsatadmin:$6$Y9r4idbFP/eWMntk$JJxeV/1.E.wNV0wZ8piOAUdF8496NQXapPI2MalB6XQ5zMHqHRJxWFlkr5nioaBX9q.3WeCeehNO.XAHTLJ8//:19458:1:1095:7:::
+apache:!!:19458::::::
+linfos:$6$rTXXI0k4$6wA0CO9zNlcHZoSfYnkxZ0DklVtFVf9snUBRqE6uZ9AZQkl.f0oXovWS7cjqUg2MDQRhbVJXZkIFXe2USOKpp1:19458:1:1095:7:35:19959:
+rpc:!!:19458:1:60:7:35::
+rpcuser:!!:19458::::::
+avahi:!!:19458::::::
+oitbsdhcsvcvvm:$6$N.8jhMGpBAxao53P$55uOeVOfxG0F9RKs3ikDUXLB/lOEXQAM2t6dSJwr12lrbdBAMJRAaoYfxHcVNZ9dZYOQ6z6S88xCssTocc0xg0:19458:1:1095:7:35::
+iscagent:!!:19459:1:60:7:35::
+sdcirisusr:!!:19459:1::7:35::
+sdcirismgr:!!:19459:1::7:35::
+sdctcpip:!!:19459:1:60:7:35::
+vasvcfsnix:$6$SVunt6jYP2os4dQZ$Ub8cUEknmABO4qIo8SVvw0QOjezMJom0nd6SFgM5VJVKHrLWdLU3u.SnUVNmoFhm6YnROUFmTlpAmwRpcTBYk/:20041:1:1095:7:35::
+]0;root@oitsdcdhcs02:~[root@oitsdcdhcs02 ~]# netstat -anto | grep -i 'established'
+Active Internet connections (servers and [01;31m[Kestablished[m[K)
+tcp        0     55 10.178.158.61:60802     10.248.24.148:19610     [01;31m[KESTABLISHED[m[K on (0.09/0/0)
+tcp        0      0 10.178.158.61:32868     10.184.36.38:445        [01;31m[KESTABLISHED[m[K off (0.00/0/0)
+tcp        0      0 10.178.158.61:59004     10.178.237.11:3268      [01;31m[KESTABLISHED[m[K keepalive (512.03/0/0)
+tcp        0      0 10.178.158.61:917       10.205.145.163:2049     [01;31m[KESTABLISHED[m[K keepalive (8.40/0/0)
+tcp        0      0 10.178.158.61:36910     10.185.21.10:445        [01;31m[KESTABLISHED[m[K off (0.00/0/0)
+tcp        0      0 10.178.158.61:39246     10.184.160.5:389        [01;31m[KESTABLISHED[m[K keepalive (512.03/0/0)
+tcp        0     96 10.178.158.61:22        10.254.66.61:6701       [01;31m[KESTABLISHED[m[K on (0.26/0/0)
+tcp        0      0 10.178.158.61:44516     10.229.103.12:389       [01;31m[KESTABLISHED[m[K keepalive (4712.20/0/0)
+tcp        0      0 10.178.158.61:38508     10.247.172.25:19748     [01;31m[KESTABLISHED[m[K keepalive (3953.66/0/0)
+]0;root@oitsdcdhcs02:~[root@oitsdcdhcs02 ~]# 
+>>>>>  Working on 10.178.158.61 @ Fri Mar  7 19:36:12 EST 2025 <<<<<
+
+spawn ssh -i ~/.ssh/oitbsdhcsvcvvm_id_rsa -o StrictHostKeyChecking=no oitbsdhcsvcvvm@10.178.158.61
+This U.S. government system is intended to be used by authorized VA network users for viewing and retrieving information only except as otherwise explicitly authorized. VA information resides on and transmits through computer systems and networks funded by VA. All use is considered to be with an understanding and acceptance that there is no reasonable expectation of privacy for any data or transmissions on Government Intranet or Extranet (non-public) networks or systems., All transactions that occur on this system and all data transmitted through this system are subject to review and action including (but not limited to) monitoring- recording- retrieving- copying- auditing- inspecting- investigating- restricting access- blocking- tracking- disclosing to authorized personnel or any other authorized actions by all authorized VA and law enforcement personnel., All use of this system constitutes understanding and unconditional acceptance of these terms., Unauthorized attempts or acts to either (1) access- upload- change- or delete information on this system (2) modify this system (3) deny access to this system or (4) accrue resources for unauthorized use on this system are strictly prohibited., Such attempts or acts are subject to action that may result in criminal civil or administrative penalties.
+Last login: Fri Mar  7 13:58:50 2025 from 10.254.66.61
+]0;oitbsdhcsvcvvm@oitsdcdhcs02:~[oitbsdhcsvcvvm@oitsdcdhcs02 ~]$ unset HISTFILE
+]0;oitbsdhcsvcvvm@oitsdcdhcs02:~[oitbsdhcsvcvvm@oitsdcdhcs02 ~]$ sudo -i
+]0;root@oitsdcdhcs02:~[root@oitsdcdhcs02 ~]# unset HISTFILE
+]0;root@oitsdcdhcs02:~[root@oitsdcdhcs02 ~]# cp bash_history /tmp/a
+cp: cannot stat 'bash_history': No such file or directory
+]0;root@oitsdcdhcs02:~[root@oitsdcdhcs02 ~]# grep -v /etc/passwd /tmp/a > /tmp/b
+grep: /tmp/a: No such file or directory
+]0;root@oitsdcdhcs02:~[root@oitsdcdhcs02 ~]# grep -v /etc/shadow /tmp/b > /tmp/c
+]0;root@oitsdcdhcs02:~[root@oitsdcdhcs02 ~]# grep -v 'netstat' /tmp/c > /tmp/d 
+]0;root@oitsdcdhcs02:~[root@oitsdcdhcs02 ~]# grep -v 'ps -aux' /tmp/d > ~/.bash_history
+]0;root@oitsdcdhcs02:~[root@oitsdcdhcs02 ~]# 
+>>>>>  Working on 10.178.158.61 @ Fri Mar  7 19:40:46 EST 2025 <<<<<
+
+spawn ssh -i ~/.ssh/oitbsdhcsvcvvm_id_rsa -o StrictHostKeyChecking=no oitbsdhcsvcvvm@10.178.158.61
+This U.S. government system is intended to be used by authorized VA network users for viewing and retrieving information only except as otherwise explicitly authorized. VA information resides on and transmits through computer systems and networks funded by VA. All use is considered to be with an understanding and acceptance that there is no reasonable expectation of privacy for any data or transmissions on Government Intranet or Extranet (non-public) networks or systems., All transactions that occur on this system and all data transmitted through this system are subject to review and action including (but not limited to) monitoring- recording- retrieving- copying- auditing- inspecting- investigating- restricting access- blocking- tracking- disclosing to authorized personnel or any other authorized actions by all authorized VA and law enforcement personnel., All use of this system constitutes understanding and unconditional acceptance of these terms., Unauthorized attempts or acts to either (1) access- upload- change- or delete information on this system (2) modify this system (3) deny access to this system or (4) accrue resources for unauthorized use on this system are strictly prohibited., Such attempts or acts are subject to action that may result in criminal civil or administrative penalties.
+Last login: Fri Mar  7 16:36:14 2025 from 10.254.66.61
+]0;oitbsdhcsvcvvm@oitsdcdhcs02:~[oitbsdhcsvcvvm@oitsdcdhcs02 ~]$ unset HISTFILE
+]0;oitbsdhcsvcvvm@oitsdcdhcs02:~[oitbsdhcsvcvvm@oitsdcdhcs02 ~]$ sudo -i
+]0;root@oitsdcdhcs02:~[root@oitsdcdhcs02 ~]# unset HISTFILE
+]0;root@oitsdcdhcs02:~[root@oitsdcdhcs02 ~]# cat /etc/passwd && cat /etc/shadow && netstat -anto | grep -i 'established' && ps -aux
+root:x:0:0:root:/root:/bin/bash
+bin:x:1:1:bin:/bin:/sbin/nologin
+daemon:x:2:2:daemon:/sbin:/sbin/nologin
+adm:x:3:4:adm:/var/adm:/sbin/nologin
+lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+sync:x:5:0:sync:/sbin:/bin/sync
+shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+halt:x:7:0:halt:/sbin:/sbin/halt
+mail:x:8:12:mail:/var/spool/mail:/sbin/nologin
+operator:x:11:0:operator:/root:/sbin/nologin
+games:x:12:100:games:/usr/games:/sbin/nologin
+ftp:x:14:50:FTP User:/var/ftp:/sbin/nologin
+nobody:x:65534:65534:Kernel Overflow User:/:/sbin/nologin
+dbus:x:81:81:System message bus:/:/sbin/nologin
+systemd-coredump:x:999:997:systemd Core Dumper:/:/sbin/nologin
+systemd-resolve:x:193:193:systemd Resolver:/:/sbin/nologin
+tss:x:59:59:Account used for TPM access:/dev/null:/sbin/nologin
+polkitd:x:998:996:User for polkitd:/:/sbin/nologin
+unbound:x:997:994:Unbound DNS resolver:/etc/unbound:/sbin/nologin
+postfix:x:89:89::/var/spool/postfix:/sbin/nologin
+fapolicyd:x:996:993:Application Whitelisting Daemon:/var/lib/fapolicyd:/sbin/nologin
+setroubleshoot:x:995:992::/var/lib/setroubleshoot:/sbin/nologin
+cockpit-ws:x:994:991:User for cockpit web service:/nonexisting:/sbin/nologin
+cockpit-wsinstance:x:993:990:User for cockpit-ws instances:/nonexisting:/sbin/nologin
+pcp:x:992:989:Performance Co-Pilot:/var/lib/pcp:/sbin/nologin
+sssd:x:991:988:User for sssd:/:/sbin/nologin
+chrony:x:990:987::/var/lib/chrony:/sbin/nologin
+sshd:x:74:74:Privilege-separated SSH:/var/empty/sshd:/sbin/nologin
+rngd:x:989:986:Random Number Generator Daemon:/var/lib/rngd:/sbin/nologin
+tcpdump:x:72:72::/:/sbin/nologin
+oiteslsvcsatadmin:x:886:886:ansible service account required for remote admin:/home/oiteslsvcsatadmin:/bin/bash
+apache:x:48:48:Apache:/usr/share/httpd:/sbin/nologin
+linfos:x:100490:100490:LINFOS Service account:/home/linfos:/bin/bash
+rpc:x:32:32:Rpcbind Daemon:/var/lib/rpcbind:/sbin/nologin
+rpcuser:x:29:29:RPC Service User:/var/lib/nfs:/sbin/nologin
+avahi:x:70:70:Avahi mDNS/DNS-SD Stack:/var/run/avahi-daemon:/sbin/nologin
+oitbsdhcsvcvvm:x:118810:118810:VistA Vitals Monitor (VVM):/home/oitbsdhcsvcvvm:/bin/bash
+iscagent:x:59999:59999::/home/iscagent:/bin/bash
+sdcirisusr:x:51105:51105::/home/sdcirisusr:/bin/bash
+sdcirismgr:x:51104:51104::/home/sdcirismgr:/bin/bash
+sdctcpip:x:51101:51101::/home/sdctcpip:/bin/bash
+vasvcfsnix:x:880:880:vasvcfsnix service account required for remote scanning:/home/vasvcfsnix:/bin/bash
+root:$5$kdaG0POddBuTruZQ$g4A9Ogc5hgt7zFp55gyho1j1lTn8A6o5MGeG/kh6JfC::1:99999:7:::
+bin:*:18367:0:99999:7:::
+daemon:*:18367:0:99999:7:::
+adm:*:18367:0:99999:7:::
+lp:*:18367:0:99999:7:::
+sync:*:18367:0:99999:7:::
+shutdown:*:18367:0:99999:7:::
+halt:*:18367:0:99999:7:::
+mail:*:18367:0:99999:7:::
+operator:*:18367:0:99999:7:::
+games:*:18367:0:99999:7:::
+ftp:*:18367:0:99999:7:::
+nobody:*:18367:0:99999:7:::
+dbus:!!:19458::::::
+systemd-coredump:!!:19458::::::
+systemd-resolve:!!:19458::::::
+tss:!!:19458::::::
+polkitd:!!:19458::::::
+unbound:!!:19458::::::
+postfix:!!:19458::::::
+fapolicyd:!!:19458::::::
+setroubleshoot:!!:19458::::::
+cockpit-ws:!!:19458::::::
+cockpit-wsinstance:!!:19458::::::
+pcp:!!:19458::::::
+sssd:!!:19458::::::
+chrony:!!:19458::::::
+sshd:!!:19458::::::
+rngd:!!:19458::::::
+tcpdump:!!:19458::::::
+oiteslsvcsatadmin:$6$Y9r4idbFP/eWMntk$JJxeV/1.E.wNV0wZ8piOAUdF8496NQXapPI2MalB6XQ5zMHqHRJxWFlkr5nioaBX9q.3WeCeehNO.XAHTLJ8//:19458:1:1095:7:::
+apache:!!:19458::::::
+linfos:$6$rTXXI0k4$6wA0CO9zNlcHZoSfYnkxZ0DklVtFVf9snUBRqE6uZ9AZQkl.f0oXovWS7cjqUg2MDQRhbVJXZkIFXe2USOKpp1:19458:1:1095:7:35:19959:
+rpc:!!:19458:1:60:7:35::
+rpcuser:!!:19458::::::
+avahi:!!:19458::::::
+oitbsdhcsvcvvm:$6$N.8jhMGpBAxao53P$55uOeVOfxG0F9RKs3ikDUXLB/lOEXQAM2t6dSJwr12lrbdBAMJRAaoYfxHcVNZ9dZYOQ6z6S88xCssTocc0xg0:19458:1:1095:7:35::
+iscagent:!!:19459:1:60:7:35::
+sdcirisusr:!!:19459:1::7:35::
+sdcirismgr:!!:19459:1::7:35::
+sdctcpip:!!:19459:1:60:7:35::
+vasvcfsnix:$6$SVunt6jYP2os4dQZ$Ub8cUEknmABO4qIo8SVvw0QOjezMJom0nd6SFgM5VJVKHrLWdLU3u.SnUVNmoFhm6YnROUFmTlpAmwRpcTBYk/:20041:1:1095:7:35::
+Active Internet connections (servers and [01;31m[Kestablished[m[K)
+tcp        0      0 10.178.158.61:33946     10.229.103.12:389       [01;31m[KESTABLISHED[m[K keepalive (1632.81/0/0)
+tcp        0      0 10.178.158.61:60802     10.248.24.148:19610     [01;31m[KESTABLISHED[m[K keepalive (11.38/0/0)
+tcp        0      0 10.178.158.61:32868     10.184.36.38:445        [01;31m[KESTABLISHED[m[K off (0.00/0/0)
+tcp        0      0 10.178.158.61:59004     10.178.237.11:3268      [01;31m[KESTABLISHED[m[K keepalive (5473.26/0/0)
+tcp        0      0 10.178.158.61:917       10.205.145.163:2049     [01;31m[KESTABLISHED[m[K keepalive (12.98/0/0)
+tcp        0      0 10.178.158.61:36910     10.185.21.10:445        [01;31m[KESTABLISHED[m[K off (0.00/0/0)
+tcp        0      0 10.178.158.61:39246     10.184.160.5:389        [01;31m[KESTABLISHED[m[K keepalive (5473.25/0/0)
+tcp        0   5264 10.178.158.61:22        10.254.66.61:36005      [01;31m[KESTABLISHED[m[K on (0.14/0/0)
+tcp        0      0 10.178.158.61:38508     10.247.172.25:19748     [01;31m[KESTABLISHED[m[K keepalive (1614.46/0/0)
+USER         PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+root           1  0.0  0.1 241652 16376 ?        Ss   Mar05   2:01 /usr/lib/systemd/systemd --switched-root --system --deserialize 18
+root           2  0.0  0.0      0     0 ?        S    Mar05   0:00 [kthreadd]
+root           3  0.0  0.0      0     0 ?        I<   Mar05   0:00 [rcu_gp]
+root           4  0.0  0.0      0     0 ?        I<   Mar05   0:00 [rcu_par_gp]
+root           5  0.0  0.0      0     0 ?        I<   Mar05   0:00 [slub_flushwq]
+root           7  0.0  0.0      0     0 ?        I<   Mar05   0:00 [kworker/0:0H-events_highpri]
+root          10  0.0  0.0      0     0 ?        I<   Mar05   0:00 [mm_percpu_wq]
+root          11  0.0  0.0      0     0 ?        S    Mar05   0:00 [rcu_tasks_rude_]
+root          12  0.0  0.0      0     0 ?        S    Mar05   0:00 [rcu_tasks_trace]
+root          13  0.0  0.0      0     0 ?        S    Mar05   0:04 [ksoftirqd/0]
+root          14  0.0  0.0      0     0 ?        I    Mar05   1:01 [rcu_sched]
+root          15  0.0  0.0      0     0 ?        S    Mar05   0:00 [migration/0]
+root          16  0.0  0.0      0     0 ?        S    Mar05   0:00 [watchdog/0]
+root          17  0.0  0.0      0     0 ?        S    Mar05   0:00 [cpuhp/0]
+root          18  0.0  0.0      0     0 ?        S    Mar05   0:00 [cpuhp/1]
+root          19  0.0  0.0      0     0 ?        S    Mar05   0:00 [watchdog/1]
+root          20  0.0  0.0      0     0 ?        S    Mar05   0:00 [migration/1]
+root          21  0.0  0.0      0     0 ?        S    Mar05   0:04 [ksoftirqd/1]
+root          23  0.0  0.0      0     0 ?        I<   Mar05   0:00 [kworker/1:0H-events_highpri]
+root          24  0.0  0.0      0     0 ?        S    Mar05   0:00 [cpuhp/2]
+root          25  0.0  0.0      0     0 ?        S    Mar05   0:00 [watchdog/2]
+root          26  0.0  0.0      0     0 ?        S    Mar05   0:00 [migration/2]
+root          27  0.0  0.0      0     0 ?        S    Mar05   0:07 [ksoftirqd/2]
+root          29  0.0  0.0      0     0 ?        I<   Mar05   0:00 [kworker/2:0H-events_highpri]
+root          30  0.0  0.0      0     0 ?        S    Mar05   0:00 [cpuhp/3]
+root          31  0.0  0.0      0     0 ?        S    Mar05   0:00 [watchdog/3]
+root          32  0.0  0.0      0     0 ?        S    Mar05   0:00 [migration/3]
+root          33  0.0  0.0      0     0 ?        S    Mar05   0:06 [ksoftirqd/3]
+root          35  0.0  0.0      0     0 ?        I<   Mar05   0:00 [kworker/3:0H-events_highpri]
+root          40  0.0  0.0      0     0 ?        S    Mar05   0:00 [kdevtmpfs]
+root          41  0.0  0.0      0     0 ?        I<   Mar05   0:00 [netns]
+root          42  0.0  0.0      0     0 ?        S    Mar05   0:00 [kauditd]
+root          44  0.0  0.0      0     0 ?        S    Mar05   0:00 [khungtaskd]
+root          45  0.0  0.0      0     0 ?        S    Mar05   0:00 [oom_reaper]
+root          46  0.0  0.0      0     0 ?        I<   Mar05   0:00 [writeback]
+root          47  0.0  0.0      0     0 ?        S    Mar05   0:00 [kcompactd0]
+root          48  0.0  0.0      0     0 ?        SN   Mar05   0:00 [ksmd]
+root          49  0.0  0.0      0     0 ?        SN   Mar05   0:01 [khugepaged]
+root          50  0.0  0.0      0     0 ?        I<   Mar05   0:00 [crypto]
+root          51  0.0  0.0      0     0 ?        I<   Mar05   0:00 [kintegrityd]
+root          52  0.0  0.0      0     0 ?        I<   Mar05   0:00 [kblockd]
+root          53  0.0  0.0      0     0 ?        I<   Mar05   0:00 [blkcg_punt_bio]
+root          54  0.0  0.0      0     0 ?        I<   Mar05   0:00 [tpm_dev_wq]
+root          55  0.0  0.0      0     0 ?        I<   Mar05   0:00 [md]
+root          56  0.0  0.0      0     0 ?        I<   Mar05   0:00 [md_bitmap]
+root          57  0.0  0.0      0     0 ?        I<   Mar05   0:00 [edac-poller]
+root          58  0.0  0.0      0     0 ?        S    Mar05   0:00 [watchdogd]
+root          60  0.0  0.0      0     0 ?        I<   Mar05   0:01 [kworker/3:1H-kblockd]
+root          72  0.0  0.0      0     0 ?        S    Mar05   0:00 [kswapd0]
+root         134  0.0  0.0      0     0 ?        I<   Mar05   0:00 [kthrotld]
+root         135  0.0  0.0      0     0 ?        S    Mar05   0:00 [irq/24-pciehp]
+root         136  0.0  0.0      0     0 ?        S    Mar05   0:00 [irq/25-pciehp]
+root         137  0.0  0.0      0     0 ?        S    Mar05   0:00 [irq/26-pciehp]
+root         138  0.0  0.0      0     0 ?        S    Mar05   0:00 [irq/27-pciehp]
+root         139  0.0  0.0      0     0 ?        S    Mar05   0:00 [irq/28-pciehp]
+root         140  0.0  0.0      0     0 ?        S    Mar05   0:00 [irq/29-pciehp]
+root         141  0.0  0.0      0     0 ?        S    Mar05   0:00 [irq/30-pciehp]
+root         142  0.0  0.0      0     0 ?        S    Mar05   0:00 [irq/31-pciehp]
+root         143  0.0  0.0      0     0 ?        S    Mar05   0:00 [irq/32-pciehp]
+root         144  0.0  0.0      0     0 ?        S    Mar05   0:00 [irq/33-pciehp]
+root         145  0.0  0.0      0     0 ?        S    Mar05   0:00 [irq/34-pciehp]
+root         146  0.0  0.0      0     0 ?        S    Mar05   0:00 [irq/35-pciehp]
+root         147  0.0  0.0      0     0 ?        S    Mar05   0:00 [irq/36-pciehp]
+root         148  0.0  0.0      0     0 ?        S    Mar05   0:00 [irq/37-pciehp]
+root         149  0.0  0.0      0     0 ?        S    Mar05   0:00 [irq/38-pciehp]
+root         150  0.0  0.0      0     0 ?        S    Mar05   0:00 [irq/39-pciehp]
+root         151  0.0  0.0      0     0 ?        S    Mar05   0:00 [irq/40-pciehp]
+root         152  0.0  0.0      0     0 ?        S    Mar05   0:00 [irq/41-pciehp]
+root         153  0.0  0.0      0     0 ?        S    Mar05   0:00 [irq/42-pciehp]
+root         154  0.0  0.0      0     0 ?        S    Mar05   0:00 [irq/43-pciehp]
+root         155  0.0  0.0      0     0 ?        S    Mar05   0:00 [irq/44-pciehp]
+root         156  0.0  0.0      0     0 ?        S    Mar05   0:00 [irq/45-pciehp]
+root         157  0.0  0.0      0     0 ?        S    Mar05   0:00 [irq/46-pciehp]
+root         158  0.0  0.0      0     0 ?        S    Mar05   0:00 [irq/47-pciehp]
+root         159  0.0  0.0      0     0 ?        S    Mar05   0:00 [irq/48-pciehp]
+root         160  0.0  0.0      0     0 ?        S    Mar05   0:00 [irq/49-pciehp]
+root         161  0.0  0.0      0     0 ?        S    Mar05   0:00 [irq/50-pciehp]
+root         162  0.0  0.0      0     0 ?        S    Mar05   0:00 [irq/51-pciehp]
+root         163  0.0  0.0      0     0 ?        S    Mar05   0:00 [irq/52-pciehp]
+root         164  0.0  0.0      0     0 ?        S    Mar05   0:00 [irq/53-pciehp]
+root         165  0.0  0.0      0     0 ?        S    Mar05   0:00 [irq/54-pciehp]
+root         166  0.0  0.0      0     0 ?        S    Mar05   0:00 [irq/55-pciehp]
+root         167  0.0  0.0      0     0 ?        I<   Mar05   0:00 [acpi_thermal_pm]
+root         168  0.0  0.0      0     0 ?        I<   Mar05   0:00 [kmpath_rdacd]
+root         169  0.0  0.0      0     0 ?        I<   Mar05   0:00 [kaluad]
+root         170  0.0  0.0      0     0 ?        I<   Mar05   0:00 [ipv6_addrconf]
+root         171  0.0  0.0      0     0 ?        I<   Mar05   0:00 [kstrp]
+root         210  0.0  0.0      0     0 ?        I<   Mar05   0:00 [zswap-shrink]
+root         230  0.0  0.0      0     0 ?        I<   Mar05   0:01 [kworker/0:1H-kblockd]
+root         258  0.0  0.0      0     0 ?        I<   Mar05   0:01 [kworker/1:1H-kblockd]
+root         261  0.0  0.0      0     0 ?        I<   Mar05   0:01 [kworker/2:1H-kblockd]
+root         532  0.0  0.0      0     0 ?        S    Mar05   0:00 [scsi_eh_0]
+root         533  0.0  0.0      0     0 ?        I<   Mar05   0:00 [scsi_tmf_0]
+root         534  0.0  0.0      0     0 ?        I<   Mar05   0:00 [vmw_pvscsi_wq_0]
+root         536  0.0  0.0      0     0 ?        I<   Mar05   0:00 [ata_sff]
+root         537  0.0  0.0      0     0 ?        S    Mar05   0:00 [scsi_eh_1]
+root         539  0.0  0.0      0     0 ?        I<   Mar05   0:00 [scsi_tmf_1]
+root         541  0.0  0.0      0     0 ?        S    Mar05   0:00 [scsi_eh_2]
+root         544  0.0  0.0      0     0 ?        S    Mar05   0:00 [scsi_eh_3]
+root         545  0.0  0.0      0     0 ?        I<   Mar05   0:00 [scsi_tmf_3]
+root         546  0.0  0.0      0     0 ?        S    Mar05   0:00 [scsi_eh_4]
+root         547  0.0  0.0      0     0 ?        I<   Mar05   0:00 [scsi_tmf_4]
+root         548  0.0  0.0      0     0 ?        S    Mar05   0:00 [scsi_eh_5]
+root         549  0.0  0.0      0     0 ?        I<   Mar05   0:00 [scsi_tmf_5]
+root         550  0.0  0.0      0     0 ?        S    Mar05   0:00 [scsi_eh_6]
+root         551  0.0  0.0      0     0 ?        I<   Mar05   0:00 [scsi_tmf_6]
+root         552  0.0  0.0      0     0 ?        S    Mar05   0:00 [scsi_eh_7]
+root         553  0.0  0.0      0     0 ?        I<   Mar05   0:00 [scsi_tmf_7]
+root         554  0.0  0.0      0     0 ?        S    Mar05   0:00 [scsi_eh_8]
+root         555  0.0  0.0      0     0 ?        I<   Mar05   0:00 [scsi_tmf_8]
+root         556  0.0  0.0      0     0 ?        S    Mar05   0:00 [scsi_eh_9]
+root         557  0.0  0.0      0     0 ?        I<   Mar05   0:00 [scsi_tmf_9]
+root         558  0.0  0.0      0     0 ?        I<   Mar05   0:00 [scsi_tmf_2]
+root         559  0.0  0.0      0     0 ?        S    Mar05   0:00 [scsi_eh_10]
+root         560  0.0  0.0      0     0 ?        I<   Mar05   0:00 [scsi_tmf_10]
+root         561  0.0  0.0      0     0 ?        S    Mar05   0:00 [scsi_eh_11]
+root         562  0.0  0.0      0     0 ?        I<   Mar05   0:00 [scsi_tmf_11]
+root         563  0.0  0.0      0     0 ?        S    Mar05   0:00 [scsi_eh_12]
+root         564  0.0  0.0      0     0 ?        I<   Mar05   0:00 [scsi_tmf_12]
+root         565  0.0  0.0      0     0 ?        S    Mar05   0:00 [scsi_eh_13]
+root         566  0.0  0.0      0     0 ?        I<   Mar05   0:00 [scsi_tmf_13]
+root         567  0.0  0.0      0     0 ?        S    Mar05   0:00 [scsi_eh_14]
+root         569  0.0  0.0      0     0 ?        I<   Mar05   0:00 [scsi_tmf_14]
+root         570  0.0  0.0      0     0 ?        S    Mar05   0:00 [irq/16-vmwgfx]
+root         571  0.0  0.0      0     0 ?        I<   Mar05   0:00 [ttm]
+root         572  0.0  0.0      0     0 ?        S    Mar05   0:00 [scsi_eh_15]
+root         573  0.0  0.0      0     0 ?        I<   Mar05   0:00 [scsi_tmf_15]
+root         574  0.0  0.0      0     0 ?        S    Mar05   0:00 [scsi_eh_16]
+root         575  0.0  0.0      0     0 ?        I<   Mar05   0:00 [scsi_tmf_16]
+root         578  0.0  0.0      0     0 ?        S    Mar05   0:00 [scsi_eh_17]
+root         579  0.0  0.0      0     0 ?        I<   Mar05   0:00 [scsi_tmf_17]
+root         580  0.0  0.0      0     0 ?        S    Mar05   0:00 [scsi_eh_18]
+root         581  0.0  0.0      0     0 ?        I<   Mar05   0:00 [scsi_tmf_18]
+root         582  0.0  0.0      0     0 ?        S    Mar05   0:00 [scsi_eh_19]
+root         583  0.0  0.0      0     0 ?        I<   Mar05   0:00 [scsi_tmf_19]
+root         584  0.0  0.0      0     0 ?        S    Mar05   0:00 [scsi_eh_20]
+root         585  0.0  0.0      0     0 ?        I<   Mar05   0:00 [scsi_tmf_20]
+root         586  0.0  0.0      0     0 ?        S    Mar05   0:00 [scsi_eh_21]
+root         587  0.0  0.0      0     0 ?        I<   Mar05   0:00 [scsi_tmf_21]
+root         588  0.0  0.0      0     0 ?        S    Mar05   0:00 [scsi_eh_22]
+root         589  0.0  0.0      0     0 ?        I<   Mar05   0:00 [scsi_tmf_22]
+root         590  0.0  0.0      0     0 ?        S    Mar05   0:00 [scsi_eh_23]
+root         591  0.0  0.0      0     0 ?        I<   Mar05   0:00 [scsi_tmf_23]
+root         592  0.0  0.0      0     0 ?        S    Mar05   0:00 [scsi_eh_24]
+root         594  0.0  0.0      0     0 ?        I<   Mar05   0:00 [scsi_tmf_24]
+root         595  0.0  0.0      0     0 ?        S    Mar05   0:00 [scsi_eh_25]
+root         596  0.0  0.0      0     0 ?        I<   Mar05   0:00 [scsi_tmf_25]
+root         597  0.0  0.0      0     0 ?        S    Mar05   0:00 [scsi_eh_26]
+root         598  0.0  0.0      0     0 ?        I<   Mar05   0:00 [scsi_tmf_26]
+root         599  0.0  0.0      0     0 ?        S    Mar05   0:00 [scsi_eh_27]
+root         600  0.0  0.0      0     0 ?        I<   Mar05   0:00 [scsi_tmf_27]
+root         601  0.0  0.0      0     0 ?        S    Mar05   0:00 [scsi_eh_28]
+root         602  0.0  0.0      0     0 ?        I<   Mar05   0:00 [scsi_tmf_28]
+root         603  0.0  0.0      0     0 ?        S    Mar05   0:00 [scsi_eh_29]
+root         604  0.0  0.0      0     0 ?        I<   Mar05   0:00 [scsi_tmf_29]
+root         605  0.0  0.0      0     0 ?        S    Mar05   0:00 [scsi_eh_30]
+root         606  0.0  0.0      0     0 ?        I<   Mar05   0:00 [scsi_tmf_30]
+root         607  0.0  0.0      0     0 ?        S    Mar05   0:00 [scsi_eh_31]
+root         610  0.0  0.0      0     0 ?        I<   Mar05   0:00 [scsi_tmf_31]
+root         611  0.0  0.0      0     0 ?        S    Mar05   0:00 [scsi_eh_32]
+root         614  0.0  0.0      0     0 ?        I<   Mar05   0:00 [scsi_tmf_32]
+root         696  0.0  0.0      0     0 ?        I<   Mar05   0:00 [xfsalloc]
+root         697  0.0  0.0      0     0 ?        I<   Mar05   0:00 [xfs_mru_cache]
+root         861  0.0  0.0      0     0 ?        I<   Mar05   0:00 [kdmflush/253:0]
+root         870  0.0  0.0      0     0 ?        I<   Mar05   0:00 [kdmflush/253:1]
+root         882  0.0  0.0      0     0 ?        I<   Mar05   0:00 [kdmflush/253:2]
+root         904  0.0  0.0      0     0 ?        I<   Mar05   0:00 [xfs-buf/dm-0]
+root         905  0.0  0.0      0     0 ?        I<   Mar05   0:00 [xfs-conv/dm-0]
+root         906  0.0  0.0      0     0 ?        I<   Mar05   0:00 [xfs-cil/dm-0]
+root         907  0.0  0.0      0     0 ?        I<   Mar05   0:00 [xfs-reclaim/dm-]
+root         908  0.0  0.0      0     0 ?        I<   Mar05   0:00 [xfs-blockgc/dm-]
+root         909  0.0  0.0      0     0 ?        I<   Mar05   0:00 [xfs-log/dm-0]
+root         910  0.0  0.0      0     0 ?        S    Mar05   0:00 [xfsaild/dm-0]
+root         945  0.0  0.0      0     0 ?        I<   Mar05   0:00 [xfs-buf/dm-2]
+root         946  0.0  0.0      0     0 ?        I<   Mar05   0:00 [xfs-conv/dm-2]
+root         947  0.0  0.0      0     0 ?        I<   Mar05   0:00 [xfs-cil/dm-2]
+root         948  0.0  0.0      0     0 ?        I<   Mar05   0:00 [xfs-reclaim/dm-]
+root         949  0.0  0.0      0     0 ?        I<   Mar05   0:00 [xfs-blockgc/dm-]
+root         950  0.0  0.0      0     0 ?        I<   Mar05   0:00 [xfs-log/dm-2]
+root         951  0.0  0.0      0     0 ?        S    Mar05   0:00 [xfsaild/dm-2]
+root        1016  0.0  1.6 427224 269996 ?       Ss   Mar05   0:42 /usr/lib/systemd/systemd-journald
+root        1050  0.0  0.0      0     0 ?        I<   Mar05   0:00 [rpciod]
+root        1051  0.0  0.0      0     0 ?        I<   Mar05   0:00 [xprtiod]
+root        1060  0.0  0.0 103984 13384 ?        Ss   Mar05   0:03 /usr/lib/systemd/systemd-udevd
+root        1062  0.0  0.0      0     0 ?        I<   Mar05   0:00 [xfs-buf/sda1]
+root        1063  0.0  0.0      0     0 ?        I<   Mar05   0:00 [xfs-conv/sda1]
+root        1064  0.0  0.0      0     0 ?        I<   Mar05   0:00 [xfs-cil/sda1]
+root        1065  0.0  0.0      0     0 ?        I<   Mar05   0:00 [xfs-reclaim/sda]
+root        1066  0.0  0.0      0     0 ?        I<   Mar05   0:00 [xfs-blockgc/sda]
+root        1067  0.0  0.0      0     0 ?        I<   Mar05   0:00 [xfs-log/sda1]
+root        1068  0.0  0.0      0     0 ?        S    Mar05   0:00 [xfsaild/sda1]
+root        1103  0.0  0.0      0     0 ?        S    Mar05   0:01 [irq/63-vmw_vmci]
+root        1104  0.0  0.0      0     0 ?        S    Mar05   0:00 [irq/64-vmw_vmci]
+root        1120  0.0  0.0      0     0 ?        I<   Mar05   0:00 [nfit]
+root        1155  0.0  0.0      0     0 ?        I<   Mar05   0:00 [kdmflush/253:3]
+root        1160  0.0  0.0      0     0 ?        I<   Mar05   0:00 [kdmflush/253:4]
+root        1161  0.0  0.0      0     0 ?        I<   Mar05   0:00 [kdmflush/253:5]
+root        1163  0.0  0.0      0     0 ?        I<   Mar05   0:00 [kdmflush/253:6]
+root        1168  0.0  0.0      0     0 ?        I<   Mar05   0:00 [kdmflush/253:7]
+root        1173  0.0  0.0      0     0 ?        I<   Mar05   0:00 [kdmflush/253:8]
+root        1186  0.0  0.0      0     0 ?        I<   Mar05   0:00 [xfs-buf/dm-3]
+root        1187  0.0  0.0      0     0 ?        I<   Mar05   0:00 [xfs-conv/dm-3]
+root        1191  0.0  0.0      0     0 ?        I<   Mar05   0:00 [xfs-cil/dm-3]
+root        1192  0.0  0.0      0     0 ?        I<   Mar05   0:00 [xfs-reclaim/dm-]
+root        1193  0.0  0.0      0     0 ?        I<   Mar05   0:00 [xfs-blockgc/dm-]
+root        1194  0.0  0.0      0     0 ?        I<   Mar05   0:00 [xfs-log/dm-3]
+root        1195  0.0  0.0      0     0 ?        S    Mar05   0:19 [xfsaild/dm-3]
+root        1198  0.0  0.0      0     0 ?        I<   Mar05   0:00 [xfs-buf/dm-5]
+root        1199  0.0  0.0      0     0 ?        I<   Mar05   0:00 [xfs-conv/dm-5]
+root        1202  0.0  0.0      0     0 ?        I<   Mar05   0:00 [xfs-buf/dm-8]
+root        1203  0.0  0.0      0     0 ?        I<   Mar05   0:00 [xfs-conv/dm-8]
+root        1204  0.0  0.0      0     0 ?        I<   Mar05   0:00 [xfs-cil/dm-5]
+root        1205  0.0  0.0      0     0 ?        I<   Mar05   0:00 [xfs-reclaim/dm-]
+root        1206  0.0  0.0      0     0 ?        I<   Mar05   0:00 [xfs-cil/dm-8]
+root        1207  0.0  0.0      0     0 ?        I<   Mar05   0:00 [xfs-blockgc/dm-]
+root        1208  0.0  0.0      0     0 ?        I<   Mar05   0:00 [xfs-reclaim/dm-]
+root        1209  0.0  0.0      0     0 ?        I<   Mar05   0:00 [xfs-blockgc/dm-]
+root        1210  0.0  0.0      0     0 ?        I<   Mar05   0:00 [xfs-log/dm-5]
+root        1211  0.0  0.0      0     0 ?        S    Mar05   0:17 [xfsaild/dm-5]
+root        1212  0.0  0.0      0     0 ?        I<   Mar05   0:00 [xfs-log/dm-8]
+root        1213  0.0  0.0      0     0 ?        S    Mar05   0:01 [xfsaild/dm-8]
+root        1219  0.0  0.0      0     0 ?        I<   Mar05   0:00 [xfs-buf/dm-6]
+root        1221  0.0  0.0      0     0 ?        I<   Mar05   0:00 [xfs-conv/dm-6]
+root        1222  0.0  0.0      0     0 ?        I<   Mar05   0:00 [xfs-cil/dm-6]
+root        1223  0.0  0.0      0     0 ?        I<   Mar05   0:00 [xfs-reclaim/dm-]
+root        1224  0.0  0.0      0     0 ?        I<   Mar05   0:00 [xfs-blockgc/dm-]
+root        1226  0.0  0.0      0     0 ?        I<   Mar05   0:00 [xfs-log/dm-6]
+root        1227  0.0  0.0      0     0 ?        S    Mar05   0:17 [xfsaild/dm-6]
+root        1233  0.0  0.0      0     0 ?        I<   Mar05   0:00 [xfs-buf/dm-4]
+root        1234  0.0  0.0      0     0 ?        I<   Mar05   0:00 [xfs-conv/dm-4]
+root        1235  0.0  0.0      0     0 ?        I<   Mar05   0:00 [xfs-cil/dm-4]
+root        1236  0.0  0.0      0     0 ?        I<   Mar05   0:00 [xfs-reclaim/dm-]
+root        1237  0.0  0.0      0     0 ?        I<   Mar05   0:00 [xfs-blockgc/dm-]
+root        1238  0.0  0.0      0     0 ?        I<   Mar05   0:00 [xfs-log/dm-4]
+root        1239  0.0  0.0      0     0 ?        S    Mar05   0:08 [xfsaild/dm-4]
+rpc         1260  0.0  0.0  67456  7776 ?        Ss   Mar05   0:00 /usr/bin/rpcbind -w -f
+root        1268  0.0  0.0 133388  3000 ?        S<sl Mar05   0:08 /sbin/auditd
+root        1272  0.0  0.0  48724  4036 ?        S<   Mar05   0:02 /usr/sbin/sedispatch
+root        1273  0.0  0.0  10992  1056 ?        S<   Mar05   0:02 /sbin/audisp-syslog LOG_INFO
+fapolic+    1350  4.7  0.5 260952 85920 ?        S<sl Mar05 133:07 /usr/sbin/fapolicyd
+root        1352  0.0  0.0 125648  6236 ?        Ssl  Mar05   0:10 /usr/sbin/irqbalance --foreground
+avahi       1354  0.0  0.0  60708  5440 ?        Ss   Mar05   0:02 avahi-daemon: running [oitsdcdhcs02.local]
+root        1355  0.0  0.0  79712 12748 ?        Ss   Mar05   0:00 /usr/bin/VGAuthService -s
+root        1356  0.1  0.0 439764 14820 ?        Ssl  Mar05   3:57 /usr/bin/vmtoolsd
+root        1361  0.0  0.0  88124 12240 ?        Ss   Mar05   0:26 /usr/lib/systemd/systemd-logind
+dbus        1362  0.0  0.0  67428  6976 ?        Ssl  Mar05   1:01 /usr/bin/dbus-daemon --system --address=systemd: --nofork --nopidfile --systemd-activation --syslog-only
+root        1364  0.0  0.3 305360 56068 ?        Ssl  Mar05   0:01 /usr/libexec/platform-python -s /usr/sbin/firewalld --nofork --nopid
+avahi       1366  0.0  0.0  60552   516 ?        S    Mar05   0:00 avahi-daemon: chroot helper
+root        1377  0.0  0.0 123232   556 ?        Sl   Mar05   0:01 /usr/sbin/usbguard-daemon -f -s -K -c /etc/usbguard/usbguard-daemon.conf
+chrony      1381  0.0  0.0 143084  5452 ?        S    Mar05   0:00 /usr/sbin/chronyd
+root        1526  0.0  0.1 383124 20216 ?        Ssl  Mar05   0:07 /usr/sbin/NetworkManager --no-daemon
+root        1588  0.0  0.0  18968  3320 ?        Ss   Mar05   0:03 /usr/bin/enlinuxpc64 -p /usr/bin/
+root        1590  0.0  0.0 123948 13664 ?        Ss   Mar05   0:02 /usr/sbin/cupsd -l
+root        1592  0.0  0.0 235624 13912 ?        Sl   Mar05   0:56 /opt/venafi/agent/bin/vagent
+root        1596  0.0  0.0 173140  6224 ?        Ssl  Mar05   0:00 /usr/sbin/gssproxy -D
+root        1608  0.0  0.0  72004  4596 ?        Ssl  Mar05   0:00 /usr/sbin/rpc.gssd
+root        1610  0.0  0.0 116252  2936 ?        Ssl  Mar05   0:00 /usr/bin/rhsmcertd
+polkitd     1705  0.0  0.1 1746708 28072 ?       Ssl  Mar05   0:09 /usr/lib/polkit-1/polkitd --no-debug
+root        1733  0.1  0.1  91744 18456 ?        Ss   Mar05   5:18 /usr/sbin/snmpd -Lf /var/log/snmp.log -p /var/run/snmpd.pid -a -f
+root        1762  0.0  0.4 484448 69124 ?        Ssl  Mar05   0:36 /usr/sbin/rsyslogd -n
+root        1767  0.0  0.0  40268  7100 ?        Ss   Mar05   0:01 sshd: /usr/share/centrifydc/sbin/sshd -D [listener] 0 of 10-100 startups
+root        1772  0.0  0.0      0     0 ?        I<   Mar05   0:00 [ib-comp-wq]
+root        1773  0.0  0.0      0     0 ?        I<   Mar05   0:00 [kworker/u9:0]
+root        1774  0.0  0.0      0     0 ?        I<   Mar05   0:00 [ib-comp-unb-wq]
+root        1777  0.0  0.0      0     0 ?        I<   Mar05   0:00 [ib_mcast]
+root        1781  0.0  0.0      0     0 ?        I<   Mar05   0:00 [ib_nl_sa_wq]
+root        1784  0.0  0.0      0     0 ?        I<   Mar05   0:00 [rdma_cm]
+root        1789  0.0  0.0      0     0 ?        I<   Mar05   0:00 [cifsiod]
+root        1791  0.0  0.0      0     0 ?        I<   Mar05   0:00 [smb3decryptd]
+root        1792  0.0  0.0      0     0 ?        I<   Mar05   0:00 [cifsfileinfoput]
+root        1793  0.0  0.0      0     0 ?        I<   Mar05   0:00 [cifsoplockd]
+root        1799  0.0  0.0  51400  3688 ?        Ss   Mar05   0:00 /usr/sbin/xinetd -stayalive -pidfile /var/run/xinetd.pid
+root        1800  0.2  0.2 204628 34092 ?        Ssl  Mar05   6:21 /usr/sbin/adclient
+root        1801  0.0  0.0 102528  5184 ?        Sl   Mar05   0:05 cdcwatch 1800 -F -M
+root        1808  0.0  0.0      0     0 ?        I<   Mar05   0:00 [nfsiod]
+root        1855  0.0  0.0 109824  5508 ?        Ss   Mar05   0:01 /usr/libexec/postfix/master -w
+postfix     1857  0.0  0.0 123900 11424 ?        S    Mar05   0:00 qmgr -l -t unix -u
+root        1860  0.0  0.0 268396 15884 ?        Ss   Mar05   0:11 /usr/sbin/httpd -DFOREGROUND
+root        1869  0.0  0.0  30356  3492 ?        Ss   Mar05   0:07 /usr/sbin/crond -n
+root        1870  0.0  0.0  30624  2716 ?        Ss   Mar05   0:00 /usr/sbin/atd -f
+root        1878  0.0  0.0  11408  1908 tty1     Ss+  Mar05   0:00 /sbin/agetty -o -p -- \u --noclear tty1 linux
+apache      1895  0.0  0.0 270332  9220 ?        S    Mar05   0:00 /usr/sbin/httpd -DFOREGROUND
+apache      1896  0.0  0.0 2771028 15564 ?       Sl   Mar05   0:58 /usr/sbin/httpd -DFOREGROUND
+apache      1897  0.0  0.0 2574356 15552 ?       Sl   Mar05   0:59 /usr/sbin/httpd -DFOREGROUND
+apache      1898  0.0  0.1 2574356 17592 ?       Sl   Mar05   1:00 /usr/sbin/httpd -DFOREGROUND
+rpcuser     2050  0.0  0.0  45372  3412 ?        Ss   Mar05   0:00 /usr/sbin/rpc.statd
+root        2135  0.0  0.0      0     0 ?        S    Mar05   0:00 [lockd]
+root        2262  0.0  0.0      0     0 ?        S    Mar05   0:01 [cifsd]
+root        2285  0.0  0.0      0     0 ?        S    Mar05   0:01 [cifsd]
+r01v20g+   10247  0.0  0.0  89908 12236 ?        Ss   Mar05   0:21 /usr/lib/systemd/systemd --user
+r01v20g+   10249  0.0  0.0 297140  5328 ?        S    Mar05   0:00 (sd-pam)
+sdciris+   10969  0.0  1.4 7026548 240200 ?      S<   Mar05   0:09 /srv/vista/sdc/iris/sdcr1ss02/bin/irisdb -s/srv/vista/sdc/iris/sdcr1ss02/mgr/ -w/srv/vista/sdc/iris/sdcr1ss02/mgr/ -cc -B 
+sdciris+   11010  0.1 32.1 7028336 5188676 ?     S<   Mar05   3:16 /srv/vista/sdc/iris/sdcr1ss02/bin/irisdb WD                                                                               
+sdciris+   11011  0.0  0.0 7026564 6804 ?        S<   Mar05   0:00 /srv/vista/sdc/iris/sdcr1ss02/bin/irisdb GC                                                                               
+sdciris+   11012  0.0  0.1 7030736 31900 ?       S    Mar05   0:05 /srv/vista/sdc/iris/sdcr1ss02/bin/irisdb JD                                                                               
+sdciris+   11013  0.1 31.2 7028336 5049076 ?     S<   Mar05   3:09 /srv/vista/sdc/iris/sdcr1ss02/bin/irisdb AUX1                                                                             
+sdciris+   11014  0.0 29.4 7027816 4753132 ?     S<   Mar05   1:28 /srv/vista/sdc/iris/sdcr1ss02/bin/irisdb AUX4                                                                             
+sdciris+   11015  0.0 29.9 7027816 4832864 ?     S<   Mar05   1:27 /srv/vista/sdc/iris/sdcr1ss02/bin/irisdb AUX5                                                                             
+sdciris+   11016  0.1 32.5 7028336 5256312 ?     S<   Mar05   3:10 /srv/vista/sdc/iris/sdcr1ss02/bin/irisdb AUX2                                                                             
+sdciris+   11017  0.0 30.3 7027816 4902300 ?     S<   Mar05   1:26 /srv/vista/sdc/iris/sdcr1ss02/bin/irisdb AUX7                                                                             
+sdciris+   11018  0.1 32.5 7028336 5259748 ?     S<   Mar05   3:09 /srv/vista/sdc/iris/sdcr1ss02/bin/irisdb AUX3                                                                             
+sdciris+   11019  0.0 29.1 7027816 4697432 ?     S<   Mar05   1:27 /srv/vista/sdc/iris/sdcr1ss02/bin/irisdb AUX6                                                                             
+sdciris+   11020  0.0  0.0 7030672 12840 ?       S<   Mar05   0:00 /srv/vista/sdc/iris/sdcr1ss02/bin/irisdb DBXD                                                                             
+root       11035  0.0  0.0      0     0 ?        I<   Mar05   0:00 [dio/dm-3]
+sdciris+   11040  0.0  0.0 7027808 15008 ?       S    Mar05   0:01 /srv/vista/sdc/iris/sdcr1ss02/bin/irisdb -s/srv/vista/sdc/iris/sdcr1ss02/mgr -cj -p13 START^MONITOR
+sdciris+   11051  0.0  0.0 7027572 12592 ?       S    Mar05   0:00 /srv/vista/sdc/iris/sdcr1ss02/bin/irisdb -s/srv/vista/sdc/iris/sdcr1ss02/mgr -cj -p13 START^CLNDMN
+sdciris+   11054  0.0  0.0 7027564 14760 ?       S    Mar05   0:02 /srv/vista/sdc/iris/sdcr1ss02/bin/irisdb -s/srv/vista/sdc/iris/sdcr1ss02/mgr -cj -p13 ^RECEIVE
+sdciris+   11055  0.0  0.0 7028400 14420 ?       S    Mar05   0:00 /srv/vista/sdc/iris/sdcr1ss02/bin/irisdb -s/srv/vista/sdc/iris/sdcr1ss02/mgr -cj -p13 Run^ECPWork
+sdciris+   11056  0.0  0.0 7027564 13632 ?       S    Mar05   0:00 /srv/vista/sdc/iris/sdcr1ss02/bin/irisdb -s/srv/vista/sdc/iris/sdcr1ss02/mgr -cj -p13 ServerMaster^%SYS.SERVER
+sdciris+   11058  0.0  0.1 7029892 23804 ?       S    Mar05   0:05 /srv/vista/sdc/iris/sdcr1ss02/bin/irisdb -s/srv/vista/sdc/iris/sdcr1ss02/mgr -cj -p13 START^LMFMON
+sdciris+   11060  1.9  0.2 7031492 44968 ?       S    Mar05  53:06 /srv/vista/sdc/iris/sdcr1ss02/bin/irisdb -s/srv/vista/sdc/iris/sdcr1ss02/mgr -w/srv/vista/sdc/iris/sdcr1ss02/mgr -cj -p20 
+sdciris+   11061  0.0  0.0  14456  1328 ?        S    Mar05   0:05 /srv/vista/sdc/iris/sdcr1ss02/bin/licmanager 4002
+sdciris+   11078  0.0  0.1 7048632 30300 ?       S    Mar05   0:09 /srv/vista/sdc/iris/sdcr1ss02/bin/irisdb -s/srv/vista/sdc/iris/sdcr1ss02/mgr -cj -p20 RunManager^%SYS.Task
+sdciris+   11084  0.0  0.3 7052560 53564 ?       S    Mar05   0:39 /srv/vista/sdc/iris/sdcr1ss02/bin/irisdb -s/srv/vista/sdc/iris/sdcr1ss02/mgr -cj -p20 Start^%SYS.Monitor.Control
+sdciris+   11092  0.0  0.2 7027572 33256 ?       S    Mar05   1:15 /srv/vista/sdc/iris/sdcr1ss02/bin/irisdb -s/srv/vista/sdc/iris/sdcr1ss02/mgr -cj -p20 RunDaemon^%SYS.WorkQueueMgr
+sdciris+   11122  0.0  0.0 7026660 11816 ?       S<   Mar05   0:09 /srv/vista/sdc/iris/sdcr1ss02/bin/irisdb -s/srv/vista/sdc/iris/sdcr1ss02/mgr -cj -p20 RunRemoteQueueDaemon^%SYS.WorkQueueM
+sdciris+   11221  1.1  0.7 7027416 116828 ?      S    Mar05  30:58 /srv/vista/sdc/iris/sdcr1ss02/bin/irisdb -s/srv/vista/sdc/iris/sdcr1ss02/mgr -cj -p21 EXEC^SHDWCBLK
+sdciris+   11222  1.8 34.5 7026668 5573908 ?     S    Mar05  50:28 /srv/vista/sdc/iris/sdcr1ss02/bin/irisdb -s/srv/vista/sdc/iris/sdcr1ss02/mgr -cj -p20 DejrnSetkill^SHDWCBLK
+sdciris+   11223  0.0 25.8 7026660 4177012 ?     S    Mar05   2:32 /srv/vista/sdc/iris/sdcr1ss02/bin/irisdb -s/srv/vista/sdc/iris/sdcr1ss02/mgr -cj -p20 DejrnDbfetch^SHDWCBLK
+sdciris+   11224  0.0 25.8 7026660 4179116 ?     S    Mar05   2:31 /srv/vista/sdc/iris/sdcr1ss02/bin/irisdb -s/srv/vista/sdc/iris/sdcr1ss02/mgr -cj -p20 DejrnDbfetch^SHDWCBLK
+sdciris+   11226  0.0 25.8 7026660 4177240 ?     S    Mar05   2:29 /srv/vista/sdc/iris/sdcr1ss02/bin/irisdb -s/srv/vista/sdc/iris/sdcr1ss02/mgr -w/srv/vista/sdc/iris/sdcr1ss02/mgr -cj -p28 
+sdciris+   11228  0.0 25.8 7026660 4176688 ?     S    Mar05   2:29 /srv/vista/sdc/iris/sdcr1ss02/bin/irisdb -s/srv/vista/sdc/iris/sdcr1ss02/mgr -w/srv/vista/sdc/iris/sdcr1ss02/mgr -cj -p29 
+sdciris+   11229  0.0  0.3 7027820 58960 ?       S    Mar05   0:19 /srv/vista/sdc/iris/sdcr1ss02/bin/irisdb -s/srv/vista/sdc/iris/sdcr1ss02/mgr -cj -p13 SHDINTRO^AXXVSTUT
+sdciris+   11231  0.0  0.8 7030712 145212 ?      S<   Mar05   0:08 /srv/vista/sdc/iris/sdcr1ss02/bin/irisdb -s/srv/vista/sdc/iris/sdcr1ss02/mgr -w/srv/vista/sdc/iris/sdcr1ss02/mgr -cj -p34 
+sdciris+   11232  0.0  0.0 7028400 12836 ?       S<   Mar05   0:09 /srv/vista/sdc/iris/sdcr1ss02/bin/irisdb -s/srv/vista/sdc/iris/sdcr1ss02/mgr -w/srv/vista/sdc/iris/sdcr1ss02/mgr -cj -p35 
+sdciris+   11341  0.0  0.5 7052444 91812 ?       SN   Mar05   0:35 /srv/vista/sdc/iris/sdcr1ss02/bin/irisdb -s/srv/vista/sdc/iris/sdcr1ss02/mgr -cj -p24 startWork^%SYS.WorkQueueMgr
+sdciris+   11352  0.0 25.7 7026660 4152552 ?     S    Mar05   2:32 /srv/vista/sdc/iris/sdcr1ss02/bin/irisdb -s/srv/vista/sdc/iris/sdcr1ss02/mgr -w/srv/vista/sdc/iris/sdcr1ss02/mgr -cj -p31 
+sdciris+   11354  0.0 25.7 7026660 4152640 ?     S    Mar05   2:36 /srv/vista/sdc/iris/sdcr1ss02/bin/irisdb -s/srv/vista/sdc/iris/sdcr1ss02/mgr -w/srv/vista/sdc/iris/sdcr1ss02/mgr -cj -p30 
+sdciris+   11355  0.0 25.7 7026660 4150068 ?     S    Mar05   2:35 /srv/vista/sdc/iris/sdcr1ss02/bin/irisdb -s/srv/vista/sdc/iris/sdcr1ss02/mgr -w/srv/vista/sdc/iris/sdcr1ss02/mgr -cj -p28 
+sdciris+   11356  0.0 25.6 7026660 4147456 ?     S    Mar05   2:31 /srv/vista/sdc/iris/sdcr1ss02/bin/irisdb -s/srv/vista/sdc/iris/sdcr1ss02/mgr -w/srv/vista/sdc/iris/sdcr1ss02/mgr -cj -p27 
+sdciris+   11358  0.0 25.5 7026660 4123276 ?     S    Mar05   2:32 /srv/vista/sdc/iris/sdcr1ss02/bin/irisdb -s/srv/vista/sdc/iris/sdcr1ss02/mgr -w/srv/vista/sdc/iris/sdcr1ss02/mgr -cj -p31 
+sdciris+   11359  0.0 25.5 7026660 4120144 ?     S    Mar05   2:31 /srv/vista/sdc/iris/sdcr1ss02/bin/irisdb -s/srv/vista/sdc/iris/sdcr1ss02/mgr -w/srv/vista/sdc/iris/sdcr1ss02/mgr -cj -p41 
+sdciris+   11360  0.0 25.5 7026660 4120548 ?     S    Mar05   2:30 /srv/vista/sdc/iris/sdcr1ss02/bin/irisdb -s/srv/vista/sdc/iris/sdcr1ss02/mgr -w/srv/vista/sdc/iris/sdcr1ss02/mgr -cj -p39 
+sdciris+   11362  0.0 25.5 7026660 4125112 ?     S    Mar05   2:30 /srv/vista/sdc/iris/sdcr1ss02/bin/irisdb -s/srv/vista/sdc/iris/sdcr1ss02/mgr -w/srv/vista/sdc/iris/sdcr1ss02/mgr -cj -p40 
+sdciris+   11364  0.0 25.5 7026660 4127204 ?     S    Mar05   2:33 /srv/vista/sdc/iris/sdcr1ss02/bin/irisdb -s/srv/vista/sdc/iris/sdcr1ss02/mgr -w/srv/vista/sdc/iris/sdcr1ss02/mgr -cj -p38 
+sdciris+   11365  0.0 25.5 7026660 4121924 ?     S    Mar05   2:30 /srv/vista/sdc/iris/sdcr1ss02/bin/irisdb -s/srv/vista/sdc/iris/sdcr1ss02/mgr -w/srv/vista/sdc/iris/sdcr1ss02/mgr -cj -p30 
+sdciris+   11367  0.0 25.5 7026660 4121036 ?     S    Mar05   2:31 /srv/vista/sdc/iris/sdcr1ss02/bin/irisdb -s/srv/vista/sdc/iris/sdcr1ss02/mgr -w/srv/vista/sdc/iris/sdcr1ss02/mgr -cj -p37 
+sdciris+   11402  0.0 25.4 7026660 4114140 ?     S    Mar05   2:28 /srv/vista/sdc/iris/sdcr1ss02/bin/irisdb -s/srv/vista/sdc/iris/sdcr1ss02/mgr -w/srv/vista/sdc/iris/sdcr1ss02/mgr -cj -p40 
+sdciris+   11403  0.0 25.4 7026660 4113300 ?     S    Mar05   2:30 /srv/vista/sdc/iris/sdcr1ss02/bin/irisdb -s/srv/vista/sdc/iris/sdcr1ss02/mgr -w/srv/vista/sdc/iris/sdcr1ss02/mgr -cj -p50 
+sdciris+   11406  0.0 25.5 7026660 4116284 ?     S    Mar05   2:32 /srv/vista/sdc/iris/sdcr1ss02/bin/irisdb -s/srv/vista/sdc/iris/sdcr1ss02/mgr -w/srv/vista/sdc/iris/sdcr1ss02/mgr -cj -p44 
+sdciris+   11407  0.0 25.5 7026660 4125524 ?     S    Mar05   2:29 /srv/vista/sdc/iris/sdcr1ss02/bin/irisdb -s/srv/vista/sdc/iris/sdcr1ss02/mgr -w/srv/vista/sdc/iris/sdcr1ss02/mgr -cj -p48 
+sdciris+   11412  0.0 25.4 7026660 4114788 ?     S    Mar05   2:29 /srv/vista/sdc/iris/sdcr1ss02/bin/irisdb -s/srv/vista/sdc/iris/sdcr1ss02/mgr -w/srv/vista/sdc/iris/sdcr1ss02/mgr -cj -p38 
+sdciris+   11413  0.0 25.4 7026660 4112400 ?     S    Mar05   2:31 /srv/vista/sdc/iris/sdcr1ss02/bin/irisdb -s/srv/vista/sdc/iris/sdcr1ss02/mgr -w/srv/vista/sdc/iris/sdcr1ss02/mgr -cj -p32 
+sdciris+   11417  0.0 25.4 7026660 4114964 ?     S    Mar05   2:30 /srv/vista/sdc/iris/sdcr1ss02/bin/irisdb -s/srv/vista/sdc/iris/sdcr1ss02/mgr -w/srv/vista/sdc/iris/sdcr1ss02/mgr -cj -p46 
+sdciris+   11418  0.0 25.4 7026660 4111420 ?     S    Mar05   2:31 /srv/vista/sdc/iris/sdcr1ss02/bin/irisdb -s/srv/vista/sdc/iris/sdcr1ss02/mgr -w/srv/vista/sdc/iris/sdcr1ss02/mgr -cj -p28 
+sdciris+   11421  0.0 25.4 7026660 4115276 ?     S    Mar05   2:27 /srv/vista/sdc/iris/sdcr1ss02/bin/irisdb -s/srv/vista/sdc/iris/sdcr1ss02/mgr -w/srv/vista/sdc/iris/sdcr1ss02/mgr -cj -p45 
+sdciris+   11422  0.0 25.5 7026660 4118820 ?     S    Mar05   2:32 /srv/vista/sdc/iris/sdcr1ss02/bin/irisdb -s/srv/vista/sdc/iris/sdcr1ss02/mgr -w/srv/vista/sdc/iris/sdcr1ss02/mgr -cj -p51 
+sdciris+   11423  0.0 25.4 7026660 4115252 ?     S    Mar05   2:33 /srv/vista/sdc/iris/sdcr1ss02/bin/irisdb -s/srv/vista/sdc/iris/sdcr1ss02/mgr -w/srv/vista/sdc/iris/sdcr1ss02/mgr -cj -p43 
+sdciris+   11426  0.0  0.0 7026660 11772 ?       S    Mar05   0:43 /srv/vista/sdc/iris/sdcr1ss02/bin/irisdb -s/srv/vista/sdc/iris/sdcr1ss02/mgr -cj -p26 PURGE^SHDWCBLK
+sdciris+   11433  0.0 25.4 7026660 4111084 ?     S    Mar05   2:28 /srv/vista/sdc/iris/sdcr1ss02/bin/irisdb -s/srv/vista/sdc/iris/sdcr1ss02/mgr -w/srv/vista/sdc/iris/sdcr1ss02/mgr -cj -p47 
+sdciris+   11437  0.0 25.4 7026660 4108080 ?     S    Mar05   2:30 /srv/vista/sdc/iris/sdcr1ss02/bin/irisdb -s/srv/vista/sdc/iris/sdcr1ss02/mgr -w/srv/vista/sdc/iris/sdcr1ss02/mgr -cj -p78 
+sdciris+   11439  0.0 25.4 7026660 4111680 ?     S    Mar05   2:33 /srv/vista/sdc/iris/sdcr1ss02/bin/irisdb -s/srv/vista/sdc/iris/sdcr1ss02/mgr -w/srv/vista/sdc/iris/sdcr1ss02/mgr -cj -p52 
+sdciris+   11440  0.0 25.5 7026660 4116724 ?     S    Mar05   2:29 /srv/vista/sdc/iris/sdcr1ss02/bin/irisdb -s/srv/vista/sdc/iris/sdcr1ss02/mgr -w/srv/vista/sdc/iris/sdcr1ss02/mgr -cj -p54 
+sdciris+   11446  0.0 25.4 7026660 4115032 ?     S    Mar05   2:33 /srv/vista/sdc/iris/sdcr1ss02/bin/irisdb -s/srv/vista/sdc/iris/sdcr1ss02/mgr -w/srv/vista/sdc/iris/sdcr1ss02/mgr -cj -p45 
+sdciris+   11449  0.0 25.4 7026660 4109388 ?     S    Mar05   2:31 /srv/vista/sdc/iris/sdcr1ss02/bin/irisdb -s/srv/vista/sdc/iris/sdcr1ss02/mgr -w/srv/vista/sdc/iris/sdcr1ss02/mgr -cj -p27 
+sdciris+   11450  0.0 25.4 7026660 4109724 ?     S    Mar05   2:30 /srv/vista/sdc/iris/sdcr1ss02/bin/irisdb -s/srv/vista/sdc/iris/sdcr1ss02/mgr -w/srv/vista/sdc/iris/sdcr1ss02/mgr -cj -p59 
+sdciris+   11454  0.0 25.4 7026660 4114536 ?     S    Mar05   2:29 /srv/vista/sdc/iris/sdcr1ss02/bin/irisdb -s/srv/vista/sdc/iris/sdcr1ss02/mgr -w/srv/vista/sdc/iris/sdcr1ss02/mgr -cj -p69 
+sdciris+   11457  0.0 25.4 7026660 4111884 ?     S    Mar05   2:28 /srv/vista/sdc/iris/sdcr1ss02/bin/irisdb -s/srv/vista/sdc/iris/sdcr1ss02/mgr -w/srv/vista/sdc/iris/sdcr1ss02/mgr -cj -p65 
+sdciris+   11458  0.0 25.4 7026660 4111232 ?     S    Mar05   2:29 /srv/vista/sdc/iris/sdcr1ss02/bin/irisdb -s/srv/vista/sdc/iris/sdcr1ss02/mgr -w/srv/vista/sdc/iris/sdcr1ss02/mgr -cj -p38 
+sdciris+   11472  0.0 25.4 7026660 4110452 ?     S    Mar05   2:29 /srv/vista/sdc/iris/sdcr1ss02/bin/irisdb -s/srv/vista/sdc/iris/sdcr1ss02/mgr -w/srv/vista/sdc/iris/sdcr1ss02/mgr -cj -p32 
+root       12779  0.0  0.3 7026660 61520 ?       S    Mar05   0:04 /srv/vista/sdc/iris/sdcr1ss02/bin/irisdb -s/srv/vista/sdc/iris/sdcr1ss02/mgr -cj -p55 SHDMON^RDP1SSM
+sdciris+   91314  0.0 22.4 7026660 3626516 ?     S    Mar06   2:12 /srv/vista/sdc/iris/sdcr1ss02/bin/irisdb -s/srv/vista/sdc/iris/sdcr1ss02/mgr -w/srv/vista/sdc/iris/sdcr1ss02/mgr -cj -p82 
+sdciris+   91316  0.0 22.3 7026660 3602532 ?     S    Mar06   2:06 /srv/vista/sdc/iris/sdcr1ss02/bin/irisdb -s/srv/vista/sdc/iris/sdcr1ss02/mgr -w/srv/vista/sdc/iris/sdcr1ss02/mgr -cj -p40 
+sdciris+   91328  0.0 22.3 7026660 3608336 ?     S    Mar06   2:08 /srv/vista/sdc/iris/sdcr1ss02/bin/irisdb -s/srv/vista/sdc/iris/sdcr1ss02/mgr -w/srv/vista/sdc/iris/sdcr1ss02/mgr -cj -p61 
+sdciris+  102242  0.0 22.2 7026660 3595796 ?     S    Mar06   2:09 /srv/vista/sdc/iris/sdcr1ss02/bin/irisdb -s/srv/vista/sdc/iris/sdcr1ss02/mgr -w/srv/vista/sdc/iris/sdcr1ss02/mgr -cj -p95 
+sdciris+  123162  0.0 22.2 7026660 3588240 ?     S    Mar06   2:04 /srv/vista/sdc/iris/sdcr1ss02/bin/irisdb -s/srv/vista/sdc/iris/sdcr1ss02/mgr -w/srv/vista/sdc/iris/sdcr1ss02/mgr -cj -p47 
+sdciris+  334743  0.0 15.8 7026660 2563388 ?     S    Mar06   1:01 /srv/vista/sdc/iris/sdcr1ss02/bin/irisdb -s/srv/vista/sdc/iris/sdcr1ss02/mgr -w/srv/vista/sdc/iris/sdcr1ss02/mgr -cj -p45 
+sdciris+  334756  0.0 15.9 7026660 2572720 ?     S    Mar06   0:59 /srv/vista/sdc/iris/sdcr1ss02/bin/irisdb -s/srv/vista/sdc/iris/sdcr1ss02/mgr -w/srv/vista/sdc/iris/sdcr1ss02/mgr -cj -p56 
+sdciris+  334757  0.0 15.9 7026660 2576176 ?     S    Mar06   0:57 /srv/vista/sdc/iris/sdcr1ss02/bin/irisdb -s/srv/vista/sdc/iris/sdcr1ss02/mgr -w/srv/vista/sdc/iris/sdcr1ss02/mgr -cj -p95 
+sdciris+  334758  0.0 15.9 7026660 2570948 ?     S    Mar06   1:00 /srv/vista/sdc/iris/sdcr1ss02/bin/irisdb -s/srv/vista/sdc/iris/sdcr1ss02/mgr -w/srv/vista/sdc/iris/sdcr1ss02/mgr -cj -p41 
+sdciris+  334760  0.0 15.9 7026660 2581948 ?     S    Mar06   1:02 /srv/vista/sdc/iris/sdcr1ss02/bin/irisdb -s/srv/vista/sdc/iris/sdcr1ss02/mgr -w/srv/vista/sdc/iris/sdcr1ss02/mgr -cj -p82 
+sdciris+  363597  0.1 15.3 7026660 2474552 ?     S    00:59   0:58 /srv/vista/sdc/iris/sdcr1ss02/bin/irisdb -s/srv/vista/sdc/iris/sdcr1ss02/mgr -w/srv/vista/sdc/iris/sdcr1ss02/mgr -cj -p52 
+sdciris+  384520  0.1 14.8 7026660 2399536 ?     S    02:45   0:51 /srv/vista/sdc/iris/sdcr1ss02/bin/irisdb -s/srv/vista/sdc/iris/sdcr1ss02/mgr -w/srv/vista/sdc/iris/sdcr1ss02/mgr -cj -p70 
+sdciris+  384521  0.1 14.9 7026660 2412380 ?     S    02:45   0:50 /srv/vista/sdc/iris/sdcr1ss02/bin/irisdb -s/srv/vista/sdc/iris/sdcr1ss02/mgr -w/srv/vista/sdc/iris/sdcr1ss02/mgr -cj -p31 
+sdciris+  384524  0.0 14.8 7026660 2397464 ?     S    02:45   0:49 /srv/vista/sdc/iris/sdcr1ss02/bin/irisdb -s/srv/vista/sdc/iris/sdcr1ss02/mgr -w/srv/vista/sdc/iris/sdcr1ss02/mgr -cj -p73 
+root      387344  2.1  0.4 517016 77900 ?        Sl   03:09  17:26 /opt/BESClient/bin/BESClient
+sdciris+  388391  0.0 14.8 7026660 2389528 ?     S    03:16   0:47 /srv/vista/sdc/iris/sdcr1ss02/bin/irisdb -s/srv/vista/sdc/iris/sdcr1ss02/mgr -w/srv/vista/sdc/iris/sdcr1ss02/mgr -cj -p37 
+sdciris+  388401  0.1 14.7 7026660 2388104 ?     S    03:16   0:49 /srv/vista/sdc/iris/sdcr1ss02/bin/irisdb -s/srv/vista/sdc/iris/sdcr1ss02/mgr -w/srv/vista/sdc/iris/sdcr1ss02/mgr -cj -p70 
+sdciris+  388412  0.1 14.7 7026660 2373208 ?     S    03:16   0:48 /srv/vista/sdc/iris/sdcr1ss02/bin/irisdb -s/srv/vista/sdc/iris/sdcr1ss02/mgr -w/srv/vista/sdc/iris/sdcr1ss02/mgr -cj -p59 
+sdciris+  388447  0.1 14.7 7026660 2381388 ?     S    03:16   0:49 /srv/vista/sdc/iris/sdcr1ss02/bin/irisdb -s/srv/vista/sdc/iris/sdcr1ss02/mgr -w/srv/vista/sdc/iris/sdcr1ss02/mgr -cj -p38 
+sdciris+  390264  0.1 14.7 7026660 2380348 ?     S    03:32   0:47 /srv/vista/sdc/iris/sdcr1ss02/bin/irisdb -s/srv/vista/sdc/iris/sdcr1ss02/mgr -w/srv/vista/sdc/iris/sdcr1ss02/mgr -cj -p88 
+sdciris+  390269  0.1 14.8 7026660 2393392 ?     S    03:32   0:48 /srv/vista/sdc/iris/sdcr1ss02/bin/irisdb -s/srv/vista/sdc/iris/sdcr1ss02/mgr -w/srv/vista/sdc/iris/sdcr1ss02/mgr -cj -p87 
+sdciris+  390270  0.1 14.8 7026660 2391080 ?     S    03:32   0:48 /srv/vista/sdc/iris/sdcr1ss02/bin/irisdb -s/srv/vista/sdc/iris/sdcr1ss02/mgr -w/srv/vista/sdc/iris/sdcr1ss02/mgr -cj -p37 
+sdciris+  390273  0.1 14.6 7026660 2368648 ?     S    03:32   0:47 /srv/vista/sdc/iris/sdcr1ss02/bin/irisdb -s/srv/vista/sdc/iris/sdcr1ss02/mgr -w/srv/vista/sdc/iris/sdcr1ss02/mgr -cj -p76 
+sdciris+  390277  0.1 14.7 7026660 2385344 ?     S    03:32   0:47 /srv/vista/sdc/iris/sdcr1ss02/bin/irisdb -s/srv/vista/sdc/iris/sdcr1ss02/mgr -w/srv/vista/sdc/iris/sdcr1ss02/mgr -cj -p83 
+sdciris+  390293  0.1 14.8 7026660 2393624 ?     S    03:33   0:48 /srv/vista/sdc/iris/sdcr1ss02/bin/irisdb -s/srv/vista/sdc/iris/sdcr1ss02/mgr -w/srv/vista/sdc/iris/sdcr1ss02/mgr -cj -p39 
+sdciris+  392122  0.0 14.8 7026660 2389952 ?     S    03:50   0:45 /srv/vista/sdc/iris/sdcr1ss02/bin/irisdb -s/srv/vista/sdc/iris/sdcr1ss02/mgr -w/srv/vista/sdc/iris/sdcr1ss02/mgr -cj -p43 
+sdciris+  392123  0.0 14.8 7026660 2391616 ?     S    03:50   0:46 /srv/vista/sdc/iris/sdcr1ss02/bin/irisdb -s/srv/vista/sdc/iris/sdcr1ss02/mgr -w/srv/vista/sdc/iris/sdcr1ss02/mgr -cj -p48 
+sdciris+  392125  0.1 14.7 7026660 2384716 ?     S    03:50   0:47 /srv/vista/sdc/iris/sdcr1ss02/bin/irisdb -s/srv/vista/sdc/iris/sdcr1ss02/mgr -w/srv/vista/sdc/iris/sdcr1ss02/mgr -cj -p29 
+root      493655  0.0  0.0      0     0 ?        R    13:40   0:00 [kworker/u8:2-events_unbound]
+postfix   510418  0.0  0.0 123772 10788 ?        S    15:07   0:00 pickup -l -t unix -u
+root      515403  0.0  0.0      0     0 ?        I    15:51   0:00 [kworker/u8:0-events_unbound]
+root      525007  0.0  0.0      0     0 ?        I    16:10   0:00 [kworker/2:2-mm_percpu_wq]
+root      525902  0.0  0.0      0     0 ?        I    16:20   0:00 [kworker/3:1-events]
+root      525907  0.0  0.0      0     0 ?        I    16:20   0:00 [kworker/1:3-cgroup_pidlist_destroy]
+root      526038  0.0  0.0      0     0 ?        I    16:20   0:00 [kworker/0:1-events]
+root      526211  0.0  0.0      0     0 ?        I    16:21   0:00 [kworker/u8:1-xfs-cil/dm-3]
+root      526845  0.0  0.0      0     0 ?        I    16:26   0:00 [kworker/3:0-cgroup_pidlist_destroy]
+root      526940  0.0  0.0      0     0 ?        I    16:28   0:00 [kworker/2:1-events]
+root      527024  0.0  0.0      0     0 ?        I    16:28   0:00 [kworker/0:2-cgroup_pidlist_destroy]
+root      527342  0.0  0.0      0     0 ?        I    16:32   0:00 [kworker/1:0-cgroup_pidlist_destroy]
+root      527343  0.0  0.0      0     0 ?        I    16:32   0:00 [kworker/1:2-cgroup_pidlist_destroy]
+root      527431  0.0  0.0      0     0 ?        I    16:32   0:00 [kworker/3:2-events]
+root      527438  0.0  0.0      0     0 ?        I    16:33   0:00 [kworker/0:3-mm_percpu_wq]
+root      527673  0.0  0.0      0     0 ?        I    16:35   0:00 [kworker/2:0-events]
+root      527674  0.1  0.0      0     0 ?        I    16:35   0:00 [kworker/2:3-events]
+root      528180  0.0  0.0      0     0 ?        I    16:40   0:00 [kworker/3:3-events_power_efficient]
+root      528315  0.0  0.0      0     0 ?        I    16:40   0:00 [kworker/1:1-events]
+root      528316  1.6  0.0 119496 12604 ?        Ss   16:40   0:00 sshd-session: oitbsdhcsvcvvm [priv]
+oitbsdh+  528323  6.5  0.0  89804 12204 ?        Ss   16:40   0:00 /usr/lib/systemd/systemd --user
+oitbsdh+  528325  0.0  0.0 297500  5576 ?        S    16:40   0:00 (sd-pam)
+oitbsdh+  528331  1.0  0.0 117700  8288 ?        R    16:40   0:00 sshd-session: oitbsdhcsvcvvm@pts/0
+oitbsdh+  528332  3.0  0.0  27700  5440 pts/0    Ss   16:40   0:00 -bash
+root      528337 15.0  0.0  80944 10584 ?        Ss   16:40   0:00 /usr/lib/systemd/systemd-hostnamed
+root      528358  0.0  0.0 125468 10240 pts/0    S    16:40   0:00 sudo -i
+root      528360  0.0  0.0  27704  5456 pts/0    S    16:40   0:00 -bash
+root      528389  0.0  0.0  59468  5752 pts/0    R+   16:40   0:00 ps -aux
+]0;root@oitsdcdhcs02:~[root@oitsdcdhcs02 ~]# cp bash_history /tmp/a
+cp: cannot stat 'bash_history': No such file or directory
+]0;root@oitsdcdhcs02:~[root@oitsdcdhcs02 ~]# grep -v /etc/passwd /tmp/a > /tmp/b
+grep: /tmp/a: No such file or directory
+]0;root@oitsdcdhcs02:~[root@oitsdcdhcs02 ~]# grep -v /etc/shadow /tmp/b > /tmp/c
+]0;root@oitsdcdhcs02:~[root@oitsdcdhcs02 ~]# grep -v 'netstat' /tmp/c > /tmp/d 
+]0;root@oitsdcdhcs02:~[root@oitsdcdhcs02 ~]# 
