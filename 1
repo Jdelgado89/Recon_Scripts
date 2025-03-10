@@ -23,17 +23,13 @@ for input_file in files:
     for line in lines:
         line = line.strip()
 
-        # Detect the start of /etc/passwd section
-        if line.startswith("root:x:") and ":" in line and len(line.split(":")) >= 7:
+        # Detect section headers
+        if line.lower().startswith("passwd file"):
             current_section = "passwd"
-
-        # Detect the start of /etc/shadow section
-        elif (line.startswith("root:!") or line.startswith("root:*") or line.startswith("$6$")) and ":" in line:
+            continue  # Skip the header line
+        elif line.lower().startswith("shadow file"):
             current_section = "shadow"
-
-        # Stop collecting if another command output starts (netstat, ps -aux, or another file dump)
-        elif "ESTAB" in line or "ps -aux" in line or "COMMAND" in line or (line.startswith("/") and not line.startswith("root:")):
-            current_section = None
+            continue  # Skip the header line
 
         # Append to the correct section
         if current_section == "passwd":
