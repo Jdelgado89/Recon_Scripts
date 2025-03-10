@@ -1,54 +1,51 @@
 import os
 import glob
 
-# Define the directory where the files are stored
 directory = "/mnt/data/"
 file_pattern = "creds_for_10.*"
 
-# Find all matching files
 files = glob.glob(os.path.join(directory, file_pattern))
 
-# Process each file
 for input_file in files:
-    base_name = os.path.basename(input_file)  # Extract filename
-    ip_part = base_name.replace("creds_for_", "")  # Extract IP or identifier
+    base_name = os.path.basename(input_file)
+    ip_part = base_name.replace("creds_for_", "")
 
-    # Define output file paths
     shadow_file = os.path.join(directory, f"shadow_output_{ip_part}.txt")
     passwd_file = os.path.join(directory, f"passwd_output_{ip_part}.txt")
 
-    # Read file content
     with open(input_file, "r") as f:
         lines = f.readlines()
 
-    # Variables to store extracted content
     shadow_data = []
     passwd_data = []
     current_section = None
 
-    # Process file content
     for line in lines:
         line = line.strip()
 
-        # Detect section headers
-        if line.startswith("/etc/shadow"):
-            current_section = "shadow"
-            continue
-        elif line.startswith("/etc/passwd"):
+        # Detect start of sections
+        if line.startswith("root:") and ":" in line:
             current_section = "passwd"
-            continue
+        elif line.startswith("$6$") or line.startswith("root:*:"):
+            current_section = "shadow"
 
-        # Store content in respective lists
-        if current_section == "shadow":
-            shadow_data.append(line)
-        elif current_section == "passwd":
+        # Stop collecting if another command output starts
+        if "ESTAB" in line or "ps -aux" in line or "COMMAND" in line:
+            current_section = None
+
+        # Store lines in the appropriate section
+        if current_section == "passwd":
             passwd_data.append(line)
+        elif current_section == "shadow":
+            shadow_data.append(line)
 
     # Write extracted data to separate files
-    with open(shadow_file, "w") as f:
-        f.write("\n".join(shadow_data))
+    if passwd_data:
+        with open(passwd_file, "w") as f:
+            f.write("\n".join(passwd_data))
+        print(f"Extracted passwd data -> {passwd_file}")
 
-    with open(passwd_file, "w") as f:
-        f.write("\n".join(passwd_data))
-
-    print(f"Processed {input_file} -> {shadow_file}, {passwd_file}")
+    if shadow_data:
+        with open(shadow_file, "w") as f:
+            f.write("\n".join(shadow_data))
+        print(f"Extracted shadow data -> {shadow_file}")
