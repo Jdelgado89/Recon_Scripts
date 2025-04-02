@@ -1,5 +1,5 @@
 @this script is meant to sperate the Shadow and Passwd file that the expect script finds.
-
+#!/usr/bin/python3
 import sys
 import os
 import re
